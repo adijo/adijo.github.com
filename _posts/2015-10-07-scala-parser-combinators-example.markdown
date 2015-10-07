@@ -105,6 +105,7 @@ import scala.util.parsing.combinator._
 {% endhighlight %}
 
 The code is structured as follows:
+
 * The `Calculator` class extends the `JavaTokenParsers` class to get the common functionality associated with parsers. We then define our grammar.
 * The function `number` is just what we described, a regular expression which matches multiple digits from 0 to 9. The triple quotes `"""` and `.r` are just scala
 features to convert `[0-9]+` to a regular expression. Now after parsing these symbols, we need to do something with them. That is exactly what the `^^` symbol enables.
