@@ -1,42 +1,26 @@
-name: Aditya's page
-description: Welcome. I am a computer science and mathematics student and this page has a bunch of my projects as well as things that I find interesting.
-meta_description: "Computer science, Mathematics."
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
 
-aboutPage: true
+# Permalinks
+permalink:        pretty
+relative_permalinks: true
 
-markdown: redcarpet
-highlighter: pygments
+# Setup
+title:            Hyde
+tagline:          'A Jekyll theme'
+description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+url:              http://hyde.getpoole.com
+baseurl:          /
 
-paginate: 20
-baseurl: /
-domain_name: 'http://yourblog-domain.com'
-google_analytics: 'UA-XXXXXXXX-X'
-disqus: false
-disqus_shortname: 'your-disqus-shortname'
+author:
+  name:           'Mark Otto'
+  url:            https://twitter.com/mdo
 
-# Details for the RSS feed generator
-url:            'http://your-blog-url.example.com'
-author:         'Aditya Joshi'
-authorTwitter:  '@1adityajoshi'
+paginate:         5
 
-permalink:       /:year/:title/
+# Custom vars
+version:          2.1.0
 
-defaults:
-    -
-        scope:
-            path: "" # empty string for all files
-            type: pages
-        values:
-            layout: default
-    -
-        scope:
-            path: "" # empty string for all files
-            type: posts
-        values:
-            layout: post
-    -
-        scope:
-            path: ""
-            type: drafts
-        values:
-            layout: post
+github:
+  repo:           https://github.com/poole/hyde
