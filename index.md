@@ -3,13 +3,21 @@ layout: default
 title: Home
 ---
 
-### Hey there!
+# Hey there!
 
 I'm a Software Engineer, Computer Science and Maths student currently based in Pune.
 
 * I write software that lives [here.](https://github.com/adijo) 
 
 * You can read about my [projects](http://adijo.github.io/projects/), [professional](http://adijo.github.io/professional/) and [research](http://adijo.github.io/research/) experience.
+
+* I did some algorithmic programming competitions
+  * [CodeChef](https://www.codechef.com/users/adijo) highest rank: Top 1% in India, 433 out of 39528 in long competitions.
+  * [Sphere Online Judge](http://www.spoj.com/users/adijo/) highest rank: Top 10% Wordwide.
+
+* My highest rank on [Kaggle](https://www.kaggle.com/adityanjoshi) (Data Science competitions) is 446 out of 389,842 people. 
+
+* I have solved 29 problems on [Rosalind](http://rosalind.info/users/adijo/) in the field of Bioinformatics.
 
 * I like answering questions on [Stackoverflow](http://stackoverflow.com/users/3375198/adijo), [Mathematics Stackexchange](http://math.stackexchange.com/users/113573/adijo) and [Quora.](https://www.quora.com/Aditya-N-Joshi) Some of my top answers:
 
