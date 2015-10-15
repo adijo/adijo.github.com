@@ -26,24 +26,24 @@ A toy project implementing a distributed string searching algorithm using akka a
 ### Minimax Tic-Tac-Toe Agent
 Implemented a robot that will never lose in a game of tic tac toe. Implemented using a min-max algorithm on a game tree. The application works in the browser. You can try it out online [here.](https://tranquil-hamlet-6036.herokuapp.com/) Code is on [GitHub.](https://github.com/adijo/min-max-tic-tac-toe)
 
-## Virtual Machine
+### Virtual Machine
 A simulation of a Virtual Machine that interprets bytecode and outputs results. The code includes a sample factorial function implemented using a custom instruction set. [GitHub.](https://github.com/adijo/virtual-machine)
 
-## Undergraduate Final Year Project:
+### Undergraduate Final Year Project
 Developed a compiler and a random forest based classification tool in Java that analyzes source code complexity and provides the probability of fault proneness in a software module.
 
-## Data Structure Design: Partitionable Array
+### Data Structure Design: Partitionable Array
 Designed and developed a new data structure that stores a collection of `n` elements of type `T` and supports an operation that tells you how many elements satisfy a predicate `P` and an operation that returns the index of some element that satisfies `P` in constant time. This was mentioned as one of the computer science undergraduate research
 projects on Ohio state university’s page. Code is on [GitHub.](https://github.com/adijo/partitionable-array) Please see [this](http://adijo.github.io/partitionable-array/) page for a more detailed description.
 
-## Parallelized Workflow Simulation
+### Parallelized Workflow Simulation
 Using functional reactive programming constructs such as [actors](http://doc.akka.io/docs/akka/2.0/scala/actors.html) to build concurrent applications by simulating various scenarios. Current implementation includes
 * An agent serving multiple requests asynchronously.
 * Multiple agents serving multiple clients asynchronously with an intermediary load balancer.
 
 Code is on [GitHub.](https://github.com/adijo/parallelized-workflow-simulation)
 
-## Sudoku Solver using Backtracking
+### Sudoku Solver using Backtracking
 Solves the Sudoku puzzle. Code is on [GitHub.](https://github.com/adijo/sudoku-solver)
 
 
