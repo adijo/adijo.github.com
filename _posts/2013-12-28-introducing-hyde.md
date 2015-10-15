@@ -5,9 +5,6 @@ use_math: true
 ---
 Let's test some inline math $x$, $y$, $x_1$, $y_1$.
 Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
-$$
-   |\psi_1\rangle = a|0\rangle + b|1\rangle
-$$
 
 ### Built on Poole
 
