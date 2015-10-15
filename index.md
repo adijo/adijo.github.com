@@ -5,7 +5,7 @@ title: Home
 
 # Hey there!
 
-I'm a Software Engineer, Computer Science and Maths student currently based in Pune.
+I'm a Software Engineer, Computer Science and Maths student currently based in Pune, India.
 
 * I write software that lives on [GitHub.](https://github.com/adijo) 
 
@@ -23,7 +23,7 @@ I'm a Software Engineer, Computer Science and Maths student currently based in P
 
   
   * [Calculating Average Time based on Success Probability](http://math.stackexchange.com/a/787923/113573)
-  
+
   * <span class="quora-content-embed" data-name="If-I-have-an-app-that-shows-a-random-image-out-of-10-how-often-do-I-need-to-start-the-app-on-average-so-that-I-have-seen-all-10-images/answer/Aditya-N-Joshi">Read <a class="quora-content-link" data-width="559" load-full-answer="False" data-key="32cf67fed87b6eebb16a4ba730ac79aa" data-id="5563204" data-embed="bojnhmn" href="https://www.quora.com/If-I-have-an-app-that-shows-a-random-image-out-of-10-how-often-do-I-need-to-start-the-app-on-average-so-that-I-have-seen-all-10-images/answer/Aditya-N-Joshi" data-type="answer" data-height="250"><a href="https://www.quora.com/Aditya-N-Joshi">Aditya N. Joshi</a>&#039;s <a href="/If-I-have-an-app-that-shows-a-random-image-out-of-10-how-often-do-I-need-to-start-the-app-on-average-so-that-I-have-seen-all-10-images#ans5563204">answer</a> to <a href="/If-I-have-an-app-that-shows-a-random-image-out-of-10-how-often-do-I-need-to-start-the-app-on-average-so-that-I-have-seen-all-10-images" ref="canonical">If I have an app that shows a random image out of 10, how often do I need to start the app, on average, so that I have seen all 10 images?</a></a> on <a href="https://www.__nousername__.main.quora.com">Quora</a><script type="text/javascript" src="https://www.quora.com/widgets/content"></script></span>
 
   * <span class="quora-content-embed" data-name="How-do-I-create-my-own-Hash-Table-implementation-in-Python/answer/Aditya-N-Joshi">Read <a class="quora-content-link" data-width="559" load-full-answer="False" data-key="ab8dd7613ed5859ea844f3fdcbbea19f" data-id="3657478" data-embed="bojnhmn" href="https://www.quora.com/How-do-I-create-my-own-Hash-Table-implementation-in-Python/answer/Aditya-N-Joshi" data-type="answer" data-height="250"><a href="https://www.quora.com/Aditya-N-Joshi">Aditya N. Joshi</a>&#039;s <a href="/How-do-I-create-my-own-Hash-Table-implementation-in-Python#ans3657478">answer</a> to <a href="/How-do-I-create-my-own-Hash-Table-implementation-in-Python" ref="canonical">How do I create my own Hash Table implementation in Python?</a></a> on <a href="https://www.__nousername__.main.quora.com">Quora</a><script type="text/javascript" src="https://www.quora.com/widgets/content"></script></span>

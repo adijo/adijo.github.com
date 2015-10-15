@@ -6,7 +6,7 @@ title: Courses
   Some courses that I took during my undergraduate education along with MOOC's.
 </p>
 
-### Pune University
+### University of Pune
 
 * Engineering Mathematics I, II and III.
 * Discrete Structures.
