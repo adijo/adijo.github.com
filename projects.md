@@ -38,6 +38,7 @@ projects on Ohio state university’s page. Code is on [GitHub.](https://github.
 
 ### Parallelized Workflow Simulation
 Using functional reactive programming constructs such as [actors](http://doc.akka.io/docs/akka/2.0/scala/actors.html) to build concurrent applications by simulating various scenarios. Current implementation includes
+
 * An agent serving multiple requests asynchronously.
 * Multiple agents serving multiple clients asynchronously with an intermediary load balancer.
 
