@@ -12,7 +12,7 @@ I participated in a [Kaggle](https://www.kaggle.com/c/restaurant-revenue-predict
 
 ## Random sentence generator using kth order Markov Chain.
 Trained the model using a bunch of random jokes found on the internet. It spits out sentences like 
-```python
+```
  "sure. ten miles to a thousand others break up. ""number 53!" says "i just trampling and four!".
 ```
 Code is hosted on [GitHub.](https://github.com/adijo/markov-random-sentence-generator)
