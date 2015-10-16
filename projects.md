@@ -10,6 +10,9 @@ You can view and download the code on [GitHub.](https://github.com/adijo/csp-sol
 ### Restaurant Revenue Prediction with Gradient Boosting Decision Trees
 I participated in a [Kaggle](https://www.kaggle.com/c/restaurant-revenue-prediction) competition that involved the prediction of revenues for TFI. I ended up using a **Gradient Boosting Regressor** as the main algorithm for my submission and achieved a world rank of 17 out of 2257 people. Code is on [GitHub.](https://github.com/adijo/kaggle/tree/master/restaurant-revenue)
 
+### Actor Binary Tree
+As part of the course **Principles of Reactive Programming**, I implemented a actor-based binary tree where each node is represented by one actor. The advantage of such an actor-based solution is that it can execute **fully asynchronously and in parallel.**
+
 ### Random sentence generator using kth order Markov Chain
 Trained the model using a bunch of random jokes found on the internet. It spits out sentences like 
 ```
