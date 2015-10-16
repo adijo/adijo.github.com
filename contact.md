@@ -3,15 +3,14 @@ layout: page
 title: Contact
 ---
 
-## Contact
 
-# Email
+#### [Email](mailto:1adityajoshi@gmail.com)
 
 `1adityajoshi at gmail dot com`
 
-# [Twitter](https://twitter.com/1adityajoshi)
+#### [Twitter](https://twitter.com/1adityajoshi)
 
-# [Quora](https://www.quora.com/Aditya-N-Joshi)
+#### [Quora](https://www.quora.com/Aditya-N-Joshi)
 
-# [GitHub](https://github.com/adijo)
+#### [GitHub](https://github.com/adijo)
 
