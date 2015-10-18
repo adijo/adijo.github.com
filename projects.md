@@ -16,30 +16,7 @@ I had just learnt about the **Parser Combinator** Monad that is available with S
 ```
 get 2 tweets of 1adityajoshi. if followers greater than 30. Find min of negative tweets.
 ```
-The sample response is as follows
-
-```
-{
-    "predictions": [
-        [
-            "RT @SoVeryBritish: Being unable to say these without sounding sarcastic:\n1. That's great\n2. Good for you\n3. Have fun\n4. Fascinating \n5. Tha…",
-            {
-                "neg": 0.036233033219778776,
-                "pos": 0.9637669667802212
-            }
-        ],
-        [
-            "@sumedhnatu Clever",
-            {
-                "neg": 0.26051781091510784,
-                "pos": 0.7394821890848922
-            }
-        ]
-    ],
-    "empty": false,
-    "result": "For the last 2 tweets, the min of all negative tweets is 0.036233"
-}
-```
+You can read more about it [here.](https://github.com/adijo/domain-specific-language-twitter-sentiment) (to be added soon.)
 
 Code is on [GitHub.](https://github.com/adijo/domain-specific-language-twitter-sentiment)
 
