@@ -10,7 +10,7 @@ You can view and download the code on [GitHub.](https://github.com/adijo/csp-sol
 ### Restaurant Revenue Prediction with Gradient Boosted Decision Trees
 I participated in a [Kaggle](https://www.kaggle.com/c/restaurant-revenue-prediction) competition that involved the prediction of revenues for TFI. I ended up using a **Gradient Boosting Regressor** as the main algorithm for my submission and achieved a world rank of 17 out of 2257 people. Code is on [GitHub.](https://github.com/adijo/kaggle/tree/master/restaurant-revenue)
 
-### DSL (Domain Specific Languages) along with Twitter Sentiment Analysis.
+### DSL (Domain Specific Languages) along with Twitter Sentiment Analysis
 I had just learnt about the **Parser Combinator** Monad that is available with Scala and how it is used to build really cool DSL's. In order to learn more about it, and also get a chance to play around with twitter data, I built a DSL for specifying twitter data retrieval and then performed analysis on it using python's `scikit-learn` using various Machine Learning algorithms such as **Naive Bayes, Logistic Regression and Support Vector Machines.** The current version involves classification using Logistic Regression. The communication between the DSL interpreter and the Machine Learning models happens through a REST interface. The model was trained using data from [Sentiment140.](http://help.sentiment140.com/) Users specify statements such as 
 
 ```
