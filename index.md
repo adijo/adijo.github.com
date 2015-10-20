@@ -10,7 +10,7 @@ I'm a Software Engineer, Computer Science and Maths student currently based in P
 {% raw %}
 <!-- The Normal Distribution -->
 <div class="equation" data-expr="\displaystyle P(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma ^2}}"></div>
-{% endraw }
+{% endraw %}
 
 {% include katex_render.html %} 
 * I write software that lives on [GitHub.](https://github.com/adijo) 
