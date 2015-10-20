@@ -6,13 +6,7 @@ title: Home
 # Hey there!
 
 I'm a Software Engineer, Computer Science and Maths student currently based in Pune, India.
-{% include katex_import.html %} 
-{% raw %}
-<!-- The Normal Distribution -->
-<div class="equation" data-expr="\displaystyle P(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma ^2}}"></div>
-{% endraw %}
 
-{% include katex_render.html %} 
 * I write software that lives on [GitHub.](https://github.com/adijo) 
 
 * You can read about my [projects](http://adijo.github.io/projects/), [professional](http://adijo.github.io/professional/) and [research](http://adijo.github.io/research/) experience.
