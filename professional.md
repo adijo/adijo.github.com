@@ -7,7 +7,7 @@ title: Professional
 
 
 Company   | Position   | Year   |   Location 
------------- | ------------- | ------------- | -------------
+------------   |   -------------   |   -------------   |   -------------
 Indian Institute of Science Education and Research | Aug 2014 - current | Pune, India 
 Sokrati Technologies | Software Design Engineer | Feb 2015 - Sept 2015 | Pune, India   
 Aegle Science | Intern | Aug 2014 - Feb 2015 | Pune, India   
