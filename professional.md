@@ -3,9 +3,6 @@ layout: page
 title: Professional
 ---
 
-# Experience
-
-
 Company   | Position   | Year   |   Location 
 ------------   |   -------------   |   -------------   |   -------------
 Indian Institute of Science Education and Research (IISER)	| Research Intern | Aug 2014 - current | Pune, India 
