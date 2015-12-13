@@ -15,10 +15,3 @@ India Life Capital | Finance Analyst Intern | Dec 2012 - Jan 2013 | Bangalore, I
 Conical Software Systems | Software Engineer Intern | Dec 2011 | Mumbai, India   
 IARC (World Health Organisation) | Student Fellow | June 2011 | Lyon, France    
 
-
-
-
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
