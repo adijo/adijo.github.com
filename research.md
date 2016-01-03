@@ -5,7 +5,7 @@ title: Research
 
 
 <p class="message">
-  I worked along with <a href = "http://www.iiserpune.ac.in/~farhat/">Dr. Farhat Habib</a> on various research projects in Computational Biology.
+  I worked along with <a href = "http://www.iiserpune.ac.in/~farhat/">Dr. Farhat Habib</a> on various research projects in computational biology.
  
 </p>
 
