@@ -4,9 +4,9 @@ title: Home
 use_math: true
 ---
 
-# Hey there!
+# Greetings,
 
-I'm a Software Engineer, Computer Science and Maths student currently based in Pune, India.
+I study computer science and mathematics. Currently, I live in Pune, India.
 
 * I write software that lives on [GitHub.](https://github.com/adijo) 
 
@@ -16,11 +16,11 @@ I'm a Software Engineer, Computer Science and Maths student currently based in P
   * [CodeChef](https://www.codechef.com/users/adijo) highest rank: Top 1% in India, 433 out of 39,528 in long competitions.
   * [Sphere Online Judge](http://www.spoj.com/users/adijo/) highest rank: Top 10% Wordwide.
 
-* My highest rank on [Kaggle](https://www.kaggle.com/adityanjoshi) \(Data Science competitions\) is 446 out of 389,842 people. 
+* My highest rank on [Kaggle](https://www.kaggle.com/adityanjoshi) is 446 out of 389,842 people. 
 
-* I have solved 29 problems on [Rosalind](http://rosalind.info/users/adijo/) in the field of Bioinformatics.
+* I have solved 29 problems on [Rosalind](http://rosalind.info/users/adijo/) in the field of bioinformatics.
 
-* I like answering questions on [Stackoverflow](http://stackoverflow.com/users/3375198/adijo), [Mathematics Stackexchange](http://math.stackexchange.com/users/113573/adijo) and [Quora.](https://www.quora.com/Aditya-N-Joshi) Some of my favourite answers:
+* I enjoy answering questions on [Stackoverflow](http://stackoverflow.com/users/3375198/adijo), [Mathematics Stackexchange](http://math.stackexchange.com/users/113573/adijo) and [Quora.](https://www.quora.com/Aditya-N-Joshi) Some of my favourite answers:
 
   
   * [Calculating Average Time based on Success Probability](http://math.stackexchange.com/a/787923/113573)
