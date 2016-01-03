@@ -1,38 +1,81 @@
 ---
 layout: post
-title: Project Euler
+title: Introducing Hyde
 use_math: true
 ---
-Let's test some inline math $x$, $y$, $x_1$, $y_1$.
-Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
 
-### Built on Poole
+After solving [Path sum: two ways](https://projecteuler.net/problem=81), which was a straightforward dynamic programming problem, I began to solve the next one in the series [Path sum: three ways.](https://projecteuler.net/problem=82) After thinking about it for some minutes, I realized that at the heart of it, this was a simple graph problem in which a shortest path had to be calculated. This was a perfect job to employ Dijkstra's shortest path algorithm. The only modification was the addition of an additional set of two nodes, one as the source and the other was the sink. The source had an edge to all the entries in the first column with 0 cost and all the entries in the last column had edges to the sink with the cost equal to the respective entry in the matrix. 
 
-Poole is the Jekyll Butler, serving as an upstanding and effective foundation for Jekyll themes by [@mdo](https://twitter.com/mdo). Poole, and every theme built on it (like Hyde here) includes the following:
+{% highlight python %}
+import heapq
+import time
 
-* Complete Jekyll setup included (layouts, config, [404](/404), [RSS feed](/atom.xml), posts, and [example page](/about))
-* Mobile friendly design and development
-* Easily scalable text and component sizing with `rem` units in the CSS
-* Support for a wide gamut of HTML elements
-* Related posts (time-based, because Jekyll) below each post
-* Syntax highlighting, courtesy Pygments (the Python-based code snippet highlighter)
+f = open("data/p81.txt", "r")
+matrix = []
+for line in f:
+    row = map(int, line.split(","))
+    matrix.append(row)
 
-### Hyde features
 
-In addition to the features of Poole, Hyde adds the following:
+class Solver(object):
 
-* Sidebar includes support for textual modules and a dynamically generated navigation with active link support
-* Two orientations for content and sidebar, default (left sidebar) and [reverse](https://github.com/poole/lanyon#reverse-layout) (right sidebar), available via `<body>` classes
-* [Eight optional color schemes](https://github.com/poole/hyde#themes), available via `<body>` classes
+    def _is_valid(self, matrix, i, j):
+        return 0 <= i < len(matrix) and 0 <= j < len(matrix[0])
 
-[Head to the readme](https://github.com/poole/hyde#readme) to learn more.
+    def _construct_graph(self, matrix):
+        graph = {}
+        for i in xrange(len(matrix)):
+            for j in xrange(len(matrix[0]) - 1):
+                graph[(i, j)] = {}
+                if self._is_valid(matrix, i + 1, j):
+                    graph[(i, j)][(i + 1, j)] = matrix[i][j]
+                if self._is_valid(matrix, i - 1, j):
+                    graph[(i, j)][(i - 1, j)] = matrix[i][j]
+                if self._is_valid(matrix, i, j + 1):
+                    graph[(i, j)][(i, j + 1)] = matrix[i][j]
 
-### Browser support
+        # source
+        graph[(-1, -1)] = {}
+        # make connections for source
+        # first column.
+        for i in xrange(len(matrix)):
+            graph[(-1, -1)][(i, 0)] = 0
 
-Hyde is by preference a forward-thinking project. In addition to the latest versions of Chrome, Safari (mobile and desktop), and Firefox, it is only compatible with Internet Explorer 9 and above.
+        # sink
+        graph[(-2, -2)] = {}
+        # make connections from last column to sink
+        for i in xrange(len(matrix)):
+            graph[(i, len(matrix[0]) - 1)] = {}
+            graph[(i, len(matrix[0]) - 1)][(-2, -2)] = matrix[i][len(matrix[0]) - 1]
 
-### Download
+        return graph
 
-Hyde is developed on and hosted with GitHub. Head to the <a href="https://github.com/poole/hyde">GitHub repository</a> for downloads, bug reports, and features requests.
 
-Thanks!
+    def dijkstra(self, graph):
+        queue = []
+        distance = {}
+        distance[(-1, -1)] = 0
+        for node in graph[(-1, -1)]:
+            distance_to_node = graph[(-1, -1)][node]
+            heapq.heappush(queue, (distance_to_node, node))
+        
+        while (-2, -2) not in distance:
+            dist, top = heapq.heappop(queue)
+            if top not in distance:
+                distance[top] = dist
+                for node in graph[top]:
+                    new_dist = distance[top] + graph[top][node]
+                    heapq.heappush(queue, (new_dist, node))
+        return distance[(-2, -2)]
+
+
+    def solve(self, matrix):
+        graph = self._construct_graph(matrix)
+        return self.dijkstra(graph)
+
+
+s = Solver()
+start = time.time()
+print s.solve(matrix)
+print time.time() - start
+{% endhighlight %}
