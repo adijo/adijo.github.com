@@ -16,7 +16,7 @@ I'm a Software Engineer, Computer Science and Maths student currently based in P
   * [CodeChef](https://www.codechef.com/users/adijo) highest rank: Top 1% in India, 433 out of 39,528 in long competitions.
   * [Sphere Online Judge](http://www.spoj.com/users/adijo/) highest rank: Top 10% Wordwide.
 
-* My highest rank on [Kaggle](https://www.kaggle.com/adityanjoshi) (Data Science competitions) is 446 out of 389,842 people. 
+* My highest rank on [Kaggle](https://www.kaggle.com/adityanjoshi) \(Data Science competitions\) is 446 out of 389,842 people. 
 
 * I have solved 29 problems on [Rosalind](http://rosalind.info/users/adijo/) in the field of Bioinformatics.
 
