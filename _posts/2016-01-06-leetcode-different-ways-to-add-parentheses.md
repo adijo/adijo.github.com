@@ -3,7 +3,7 @@ layout: post
 title: Leetcode - Different Ways to Add Parentheses
 ---
 
-This was a fun problem to solve. The first thing to do is to tokenize the input. Next, the basic idea is to imagine that at every operator symbol,
+This was a fun [problem](https://leetcode.com/problems/different-ways-to-add-parentheses/) to solve. The first thing to do is to tokenize the input. Next, the basic idea is to imagine that at every operator symbol,
 what would happen if this operation was carried out last? We define the function `compute(lo, hi)` that will 
 return a list of all possible values by adding all possible parentheses. The algorithm is as follows - We loop from `lo` to `hi` inclusive
 and if we find an operator (+, - or *) at position `i`, we split the list into two parts - the sublist to the left of this operator and the sublist to the right. 
