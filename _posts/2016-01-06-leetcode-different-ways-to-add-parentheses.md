@@ -5,8 +5,9 @@ title: Leetcode - Different Ways to Add Parentheses
 
 This was a fun problem to solve. The first thing to do is to tokenize the input. Next, the basic idea is to imagine that at every operator symbol,
 what would happen if this operation was carried out last? We define the function `compute(lo, hi)` that will 
-return a list of all possible values by adding all possible parentheses. The algorithm is as follows -- We loop from `lo` to `hi` inclusive
-and if we find an operator (+, - or *) at position `i`, we split at that point `i`. We recursively find `compute(lo, i - 1)` and `compute(i + 1, hi)`.we carry out the 
+return a list of all possible values by adding all possible parentheses. The algorithm is as follows - We loop from `lo` to `hi` inclusive
+and if we find an operator (+, - or *) at position `i`, we split the list into two parts - the sublist to the left of this operator and the sublist to the right. 
+We recursively find `compute(lo, i - 1)` and `compute(i + 1, hi)`. We carry out the 
 operation at position `i` for every entry in the cartesian product of these two lists.
 
 It is better understood by this visualization and by the code.
