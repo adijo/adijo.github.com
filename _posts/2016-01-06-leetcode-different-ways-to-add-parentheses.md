@@ -11,7 +11,7 @@ lists, we carry out the operation at position `i`.
 
 It is better understood by this visualization and by the code.
 
-![Parentheses]({{ site.url }}/assets/leetcode_parens.png)
+![Parentheses](http://adijo.github.io/assets/leetcode_parens.png)
 
 The left list `[6]` and right list `[20]` could have multiple elements and the operation is a cartesian product of these two lists with the respective operator, which in this case is the subtraction symbol.
 
