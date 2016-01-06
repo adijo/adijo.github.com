@@ -43,7 +43,6 @@ class Solution(object):
                     tokens.append(str(int(string[i:])))
 
                 i = j        
-
         return tokens
 
 
@@ -58,37 +57,34 @@ class Solution(object):
         f = mapping[operation]
         return f(one, two)
 
-    def _forward_operate(self, num, operation, rest):
-        return map(lambda x : self._evaluate(num, operation, x), rest)
-
-    def _compute(self, curr, tokens):
+    def _is_operation(self, char):
         operations = set(["+", "-", "*"])
-        if curr == len(tokens) - 1:
-            return [int(tokens[curr])]
-        elif curr == len(tokens) - 3:
-            return [self._evaluate(tokens[curr], tokens[curr + 1], tokens[curr + 2])]
-        elif curr < len(tokens) and tokens[curr] not in operations:
-            # first option is consume.
-            one = self._compute(curr + 2, tokens)
+        return (char in operations)
 
-            # one contains a list.
-            consume = self._evaluate(tokens[curr], tokens[curr + 1], tokens[curr + 2])
-            two = self._compute(curr + 4, tokens)
-            res_one = self._forward_operate(int(tokens[curr]), tokens[curr + 1], one)
-            if curr + 3 < len(tokens):
-                res_two = self._forward_operate(consume, tokens[curr + 3], two)
-            else:
-                res_two = [int(consume)]
-            return res_one + res_two
-        else:
-            return []
+    def _compute(self, tokens, lo, hi):
+        
+        if lo == hi:
+            return [int(tokens[lo])]
+        elif lo < hi:
+            answer = []
+            for i in xrange(lo, hi + 1):
+                if self._is_operation(tokens[i]):
+                    # [lo .. i - 1, i + 1 .. mid]
+                    less = self._compute(tokens, lo, i - 1)
+                    more = self._compute(tokens, i + 1, hi)
+                    for l in less:
+                        for m in more:
+                            answer.append(self._evaluate(l, tokens[i], m))
+            return answer
+
 
 
     def diffWaysToCompute(self, input):
         tokens = self._tokenize(input)
-        return self._compute(0, tokens) + self._compute(0, tokens[::-1])
+        return self._compute(tokens, 0, len(tokens) - 1)
 
 s = Solution()
 print s.diffWaysToCompute("2*3-4*5")
+
 
 {% endhighlight %}
