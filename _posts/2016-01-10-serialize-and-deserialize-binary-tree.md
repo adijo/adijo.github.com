@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Leetcode - Serialize and Deserialize a Binary Tree
-use_math: true
+
 ---
 
-
-One way to do this [problem](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) is to store the *preorder* and *inorder* traversals of the binary tree. This can uniquely preserve the structure of a binary tree. We still store twice the amount of data actually required although asymptotically it is still $ O(n).$
+{% include katex_import.html %} 
+One way to do this [problem](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) is to store the *preorder* and *inorder* traversals of the binary tree. This can uniquely preserve the structure of a binary tree. We still store twice the amount of data actually required although asymptotically it is still <div class="bigoh" data-expr="\displaystyle O(n)"></div>
 
 An alternative to this is to serialize the tree with the following algorithm:
 
@@ -19,4 +19,5 @@ For example, the following tree is serialized as `[1, 2, 3, null, null, 4, 5].`
 
 To deserialize a tree, we maintain two pointers. One pointer (say `i`) is to indicate which node is currently being processed. The second pointer (say `j`) is the index of the left child of `i.` There are a few corner cases to take care of. If `i` is equal to `null` we simply ignore it. If `j` is out of bounds, we simply set the left and right child of `i` as `None.`
     
+{% include katex_render.html %} 
 <script src="https://gist.github.com/adijo/d9e70ce8f45dde940243.js"></script>
