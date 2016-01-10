@@ -5,7 +5,10 @@ title: Leetcode - Serialize and Deserialize a Binary Tree
 ---
 
 {% include katex_import.html %} 
-One way to do this [problem](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) is to store the *preorder* and *inorder* traversals of the binary tree. This can uniquely preserve the structure of a binary tree. We still store twice the amount of data actually required although asymptotically it is still <div class="bigoh" data-expr="\displaystyle O(n)"></div>
+One way to do this [problem](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) is to store the *preorder* and *inorder* traversals of the binary tree. This can uniquely preserve the structure of a binary tree. We still store twice the amount of data actually required although asymptotically it is still {% raw %}
+<!-- The Normal Distribution -->
+<div class="equation" data-expr="\displaystyle O(n)"></div>
+{% endraw %}
 
 An alternative to this is to serialize the tree with the following algorithm:
 
