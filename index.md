@@ -27,19 +27,19 @@ I study computer science and mathematics. Currently, I live in Pune, India.
   * [Calculating Average Time based on Success Probability](http://math.stackexchange.com/a/787923/113573)
 
 
-  * [Question about Coupon Collector's problem](https://www.quora.com/If-I-have-an-app-that-shows-a-random-image-out-of-10-how-often-do-I-need-to-start-the-app-on-average-so-that-I-have-seen-all-10-images)
+  * [Question about Coupon Collector's problem](http://qr.ae/RgO7tL)
 
-  * [How do you implement a Hash Table in Python?](https://www.quora.com/How-do-I-create-my-own-Hash-Table-implementation-in-Python)
+  * [How do you implement a Hash Table in Python?](http://qr.ae/RgO7vw)
 
-  * [Calculating square root's by hand](https://www.quora.com/What-is-the-method-to-calculate-a-square-root-by-hand)
+  * [Calculating square root's by hand](http://qr.ae/RgO7rg)
 
-  * [What is the highest power of 2 that evenly divides $3^{1024} - 1$](https://www.quora.com/What-is-the-highest-power-of-2-that-evenly-divides-3-1024-1)
+  * [What is the highest power of 2 that evenly divides $3^{1024} - 1$](http://qr.ae/RgO7yp)
 
-  * [How does one obtain the recursive formula for the rod cutting problem?](https://www.quora.com/How-does-one-obtain-the-recursive-formula-for-the-Rod-Cutting-Problem)
+  * [How does one obtain the recursive formula for the rod cutting problem?](http://qr.ae/RgO7y5)
 
-  * [What is the binomial distribution?](https://www.quora.com/What-is-the-binomial-distribution)
+  * [What is the binomial distribution?](http://qr.ae/RgO7ob)
 
-  * [What is the best algorithm for finding shortest path with some limitations?](https://www.quora.com/What-is-the-best-algorithm-for-finding-the-path-with-two-limitations)
+  * [What is the best algorithm for finding shortest path with some limitations?](http://qr.ae/RgO75P)
 
-  * [Let's say I was playing a game. In the game, I have a 1 in 10 chance of winning, then 1 in 100, then 1 in 1000, and on and on. I have an infinite number of tries. What are the chances that I eventually win?](https://www.quora.com/Lets-say-I-was-playing-a-game-In-the-game-I-have-a-1-in-10-chance-of-winning-then-1-in-100-then-1-in-1000-and-on-and-on-I-have-an-infinite-number-of-tries-What-are-the-chances-that-I-eventually-win)
+  * [Let's say I was playing a game. In the game, I have a 1 in 10 chance of winning, then 1 in 100, then 1 in 1000, and on and on. I have an infinite number of tries. What are the chances that I eventually win?](http://qr.ae/RgO7w4)
 
