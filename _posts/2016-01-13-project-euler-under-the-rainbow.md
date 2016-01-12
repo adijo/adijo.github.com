@@ -22,7 +22,7 @@ According to my intuition, this problem was an application of the property of li
 *  *Is it like the Coupon Collector's Problem?* Nope, that wouldn't work.
 *  *Since there are a limited number of colours, we could assign $1$ if we saw that particular colour and $0$ otherwise. This could be extended to find the expected value of distinct colours.* **Yes!** 
 
-## Solution
+### Solution
 
 Let $ I_0 $ be the random variable that equals $ 1 $ if we see the $ 0^{\text{th}} $ colour **at least** once in $ 20 $ trials and $ 0 $ otherwise.
 
