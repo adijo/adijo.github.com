@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Rosalind - Longest Path in a DAG (Directed Acyclic Graph)
+title: Rosalind - Longest Path in a Directed Acyclic Graph
 ---
 
 The mention of *longest* or *shortest* usually hints towards a dynamic programming solution and this [problem](http://rosalind.info/problems/ba5d/) was no different. One way to think about the problem is the following: We start backwards, from the sink. The longest path from the sink to the sink is 0. Ok, that was obvious. Next, consider all the incoming edges to this node.
