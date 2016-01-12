@@ -21,12 +21,12 @@ We can thus view the birth of a `AaBb` offspring as a *success* and the birth of
 
 In other words, in a population of $2^{k}$ individuals, first we find the probability that **exactly** $ n $ are of the desired genotype `AaBb`, then we find the probability that **exactly** $n + 1$ are of that genotype and so on until all the individuals $2^{k}$are of that genotype.
 
-The probability of getting **exactly** $ n $ organisms of genotype `AaBb` out of $2^{k}$ is given by the binomial distribution as: 
+The probability of getting **exactly** $ n $ organisms of genotype `AaBb` out of $2^{k}$ is given by the binomial distribution as, with $ N = 2^{k} $: 
 
-$$ \dbinom{2^{k}}{n} 0.25^{n} 0.75^{2^{k} - n} $$.
+$$ \dbinom{N}{n} 0.25^{n} 0.75^{N - n} $$.
 
 For the rest, we can succintly write this as
 
-$$ \sum_{i=n}^{2^{k}} \dbinom{2^{k}}{i} 0.25^{i} 0.75^{2^{k} - i} $$.
+$$ \sum_{i=n}^{N} \dbinom{N}{i} 0.25^{i} 0.75^{N - i} $$.
 
 <script src="https://gist.github.com/adijo/dcb12f1dcc9c24bdf8db.js"></script>
