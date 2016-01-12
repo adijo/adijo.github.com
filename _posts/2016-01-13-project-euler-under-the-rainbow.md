@@ -35,7 +35,7 @@ $$ E[I_0] = 1 \cdot (1 - P(\text{colour is never seen})) $$
 The probability that the colour is never seen can be simplified using the formula for finding $ k $ successes in $ n $ draws, *without replacement*, from a finite population size $ N $ that contains exactly $ K $ successes. To fit our problem, let us define success as seeing one of the other colours and not colour $ 0. $ Thus, we get $ N = 70, K = 60, n = 20, k = 20 $. According to the formula, the answer is given by 
 $$ \dfrac{\dbinom{K}{k} \dbinom{N - K}{n - k}}{\dbinom{N}{n}} $$
 
-Subsituting our numbers, we get
+Substituting our numbers, we get
 
 $$ \dfrac{\dbinom{60}{20} \dbinom{70 - 60}{0}}{\dbinom{70}{20}} = 0.02589402828$$
 
