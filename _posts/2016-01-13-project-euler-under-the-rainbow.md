@@ -12,11 +12,11 @@ Many problems can be simplified by the somewhat suprising fact that
 
 $$ E[X_1 + X_2 + X_3] = E[X_1] + E[X_2] + E[X_3] $$
 
-This is called the [Linearity of Expectation](https://brilliant.org/wiki/linearity-of-expectation/) and it fascinates my mind every time.
+This is called the [Linearity of Expectation](https://brilliant.org/wiki/linearity-of-expectation/) and it fascinates me everytime.
 
 ### Initial thoughts
 
-According to my intuition, this problem was an application of the property of linearity of expectation. The question was, what should I attach the Indicator random variable to?
+According to my intuition, this problem was an application of the property of linearity of expectation. The question was -- what factor should I attach the indicator random variable to?
 
 *  *Could it be $1$ if we see a distinct colour on trial $i?$* No, that doesn't make sense.
 *  *Is it like the Coupon Collector's Problem?* Nope, that wouldn't work.
