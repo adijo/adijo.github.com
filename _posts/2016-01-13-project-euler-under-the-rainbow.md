@@ -28,7 +28,7 @@ Let $ I_0 $ be the random variable that equals $ 1 $ if we see the $ 0^{\text{th
 
 The expected value of this can be described by the [Hypergeometric distribution.](https://en.wikipedia.org/wiki/Hypergeometric_distribution)
 
-$$ E[I_0] = 1 * P(\text{colour is seen at least once}) + 0 * P(\text{doesn't matter}) $$
+$$ E[I_0] = 1 \cdot P(\text{colour is seen at least once}) + 0 \cdot P(\text{doesn't matter}) $$
 
 $$ E[I_0] = 1 \cdot (1 - P(\text{colour is never seen})) $$
 
