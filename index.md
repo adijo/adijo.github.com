@@ -19,7 +19,7 @@ I study computer science and mathematics. Currently, I live in Pune, India.
 * My highest rank on [Kaggle](https://www.kaggle.com/adityanjoshi) is 446 out of 389,842 people. 
 * I have started solving problems on [Project Euler](https://projecteuler.net/): ![PE stats](https://projecteuler.net/profile/rosetta.png "")
   
-* I have solved 29 problems on [Rosalind](http://rosalind.info/users/adijo/) in the field of bioinformatics.
+* I have solved 32 problems on [Rosalind](http://rosalind.info/users/adijo/) in the field of bioinformatics.
 
 * I enjoy answering questions on [Stackoverflow](http://stackoverflow.com/users/3375198/adijo), [Mathematics Stackexchange](http://math.stackexchange.com/users/113573/adijo) and [Quora.](https://www.quora.com/Aditya-N-Joshi) Some of my favourite answers:
 
