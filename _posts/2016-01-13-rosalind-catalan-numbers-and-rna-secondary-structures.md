@@ -11,7 +11,7 @@ In a given RNA strand, let the starting index be `lo` and the last index be `hi.
 
 To make the algorithm efficient, every time we calculate a value for a given `lo` and `hi,` we cache it in a dictionary. These values can then be recovered in constant time for further use. 
 
-At a very high level,
+### Pseudocode
 
 {% highlight python %}
 f(lo, hi) = 
