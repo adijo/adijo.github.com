@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Projects
+comments: true
 ---
 
 ### CSP (Constraint Satisfaction Solver) with Arc-Consistency
