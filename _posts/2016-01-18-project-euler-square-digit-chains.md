@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Project Euler - Square Digit Chains
-use_math: true
 ---
 
 This [problem](https://projecteuler.net/problem=92) had a brute force solution, with an important speedup -- **memoization.**
