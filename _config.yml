@@ -7,6 +7,8 @@ redcarpet:
 permalink:        pretty
 relative_permalinks: true
 
+avatar: https://lh3.googleusercontent.com/63qIoCQMpeYlbeOSVNEEFqIG-fjLyChZahslTwVw_5UmGV2jHw89KelRjlavNQiKmx5c=w1920-h1080-rw-no
+
 # Setup
 title:            Aditya Joshi
 tagline:          'Wanderer'
