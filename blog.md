@@ -4,6 +4,10 @@ title: Blog
 comments: true
 ---
 
+<p class="message">
+  All my solutions should only be used as a reference. Please solve them yourself before looking at my solutions to fully benefit from these problems.
+</p>
+
 <ul>
   {% for post in site.posts %}
     <li>
