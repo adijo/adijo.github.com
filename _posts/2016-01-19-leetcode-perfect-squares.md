@@ -17,7 +17,7 @@ This [problem](https://leetcode.com/problems/perfect-squares/) required a couple
 
 As a concrete example, consider the case of number `13.` The candidates for this case are `[1, 4, 9].`
 {% highlight python %}
-dp[13][2] = min(1 + dp[13 - 9][2], dp[13][2]
+dp[13][2] = min(1 + dp[13 - 9][2], dp[13][2])
 {% endhighlight %}
 
 ### Notes
