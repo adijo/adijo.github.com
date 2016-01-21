@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Rosalind - Introduction to Pattern Matching, Implementing a Trie
+title: Rosalind - Introduction to Pattern Matching - Implementing a Trie
 ---
 
 The [problem](http://rosalind.info/problems/trie/) basically asks us to implement a [trie.](https://en.wikipedia.org/wiki/Trie) I did this in Python.
@@ -12,7 +12,7 @@ Every node of the trie is represented as a dictionary. The keys associated with 
 As a practical example, if we insert the following strings, `ATAGA, ATC, GAT`, our trie will look like this:
 
 {% highlight python %}
-{'A': ({'id': 2, 'T': ({'A': ({'id': 4, 'G': ({'A': ({'id': 6}, True), 'id': 5}, None)}, None), 'C': ({'id': 7}, True), 'id': 3}, None)}, None), 'id': 1, 'G': ({'A': ({'id': 9, 'T': ({'id': 10}, True)}, None), 'id': 8}, None)}`
+{'A': ({'id': 2, 'T': ({'A': ({'id': 4, 'G': ({'A': ({'id': 6}, True), 'id': 5}, None)}, None), 'C': ({'id': 7}, True), 'id': 3}, None)}, None), 'id': 1, 'G': ({'A': ({'id': 9, 'T': ({'id': 10}, True)}, None), 'id': 8}, None)}
 {% endhighlight %}
 
 ### Code
