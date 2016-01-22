@@ -19,7 +19,7 @@ The calculations of all $E[I_i]$ values are identical. Once we find the probabil
 
 For example, if the GC-content is $0.25$, $P(G) = 0.125, P(C) = 0.125, P(A) = 0.375, P(T) = 0.375.$ Then string `AG` is constructed with probability $ 0.125 \cdot 0.375.$
 
-Once we have the probability of randomly constructing string $ s $, the expected value of $ I_i$ is simply the expected value of a [Bernoulli trial,](https://en.wikipedia.org/wiki/Bernoulli_trial) i.e., there is a certain probability of success and failure. In our case, the success occurs if we randomly construct string $s.$ Let this expected value equal $x.$ Now, since the calculation of all $E[I_i]$ is identical, our answer is $ x * (n - 1).$
+Once we have the probability of randomly constructing string $ s $, the expected value of $ I_i$ is simply the expected value of a [Bernoulli trial,](https://en.wikipedia.org/wiki/Bernoulli_trial) i.e., there is a certain probability of success and failure. In our case, the success occurs if we randomly construct string $s.$ Let this expected value equal $x.$ Now, since the calculation of all $E[I_i]$ is identical, our answer is $ x \cdot (n - 1).$
 
 ### Code
 <script src="https://gist.github.com/adijo/c4d3e475ee0a39797533.js"></script>
