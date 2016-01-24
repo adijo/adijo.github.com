@@ -6,7 +6,7 @@ title: Haskell Notes
 ## Notes for [CIS 194](http://www.seas.upenn.edu/~cis194/)
 
 <p class="message">
-  The following notes are snippets taken out of the [Introduction to Haskell](http://www.seas.upenn.edu/~cis194/) class offered by UPenn.
+  The following notes are snippets taken from the <a href="http://www.seas.upenn.edu/~cis194/"> Introduction to Haskell</a> class offered by UPenn.
 </p>
 
 ### Parametric Polymorphism
