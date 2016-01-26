@@ -10,7 +10,7 @@ title: Research
 </p>
 
 ### Micro RNA Target Prediction
-A  micro  RNA  molecule  is  a  21-25  nucleotide  long  non-coding  strand  that  isinvolved in post-transcriptional gene regulation activities.
+A  micro  RNA  molecule  is  a  21-25  nucleotide  long  non-coding  strand  that  is involved in post-transcriptional gene regulation activities.
 We used a Stochastic pairwise alignment algorithm to predict potential binding sites.
 
 ### Genotype Phenotype Correlation Tool
