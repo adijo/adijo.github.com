@@ -15,11 +15,11 @@ To make the algorithm efficient, every time we calculate a value for a given `lo
 
 {% highlight python %}
 f(lo, hi) = 
-	accumulator = 0
-	for i = lo + 1 ... hi
-		if char at i is valid:
-			accumulator += f(lo + 1, i - 1) * f(i + 1, hi)
-	return accumulator
+    accumulator = 0
+    for i = lo + 1 ... hi
+        if char at i is valid:
+            accumulator += f(lo + 1, i - 1) * f(i + 1, hi)
+    return accumulator
 {% endhighlight %}
 
 We have to take care of the various edge cases. You can see how I've done it in my code below:

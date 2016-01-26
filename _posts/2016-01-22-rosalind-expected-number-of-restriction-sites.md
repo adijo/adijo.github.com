@@ -11,7 +11,7 @@ The question asks us to find the expected number of times we see a string $s$ as
 
 We assign a indicator random variable $I_i$ equal to $1$ if we see the string $s$ beginning at the $i^{\text{th}}$ position. Thus, we have to find
 
-$$ E[I_0 + I_1 + I_2 ... I_{n - 1}] = \sum_{i = 0}^{n - 1} E[I_i] $$
+$$ E[I_0 + I_1 + I_2 ... + I_{n - 1}] = \sum_{i = 0}^{n - 1} E[I_i] $$
 
 This is due to [Linearity of Expectation.](https://brilliant.org/wiki/linearity-of-expectation/)
 
