@@ -7,5 +7,4 @@ This [problem](https://projecteuler.net/problem=50) required us to get one key i
 
 
 ### Code
-
 <script src="https://gist.github.com/adijo/8438fcd13a5514035dff.js"></script>
