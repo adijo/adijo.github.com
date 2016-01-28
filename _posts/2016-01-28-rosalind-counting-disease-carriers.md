@@ -26,7 +26,7 @@ To solve this [problem,](http://rosalind.info/problems/afrq/) we need to know ab
 
 ### Analysis and Solution
 
-In our problem, we are given the proportion of homozygous recessive organisms. In other words, we are given the proportion of $bb$ organisms. Thus, we are given $p^2.$ We need to find the probability of picking an organism with **at least** one recessive allele -- The organisms with genotype $$bb$$ and $Bb.$ We already know the proportion of $bb$ individuals. We need to find the proportion of $Bb$ individuals, and this equals $2pq$ from the notes above. It boils down to simple maths now, from $p^2,$ we get $p.$ As $ p + q = 1,$ we can find $q$. We can then find $2pq$ and then we add up $p^2$ and $2pq$ to give us our final answer, $p^2 + 2pq.$ This is done for every value in our array.
+In our problem, we are given the proportion of homozygous recessive organisms. In other words, we are given the proportion of $bb$ organisms. Thus, we are given $p^2.$ We need to find the probability of picking an organism with **at least** one recessive allele -- The organisms with genotype $bb$ and $Bb.$ We already know the proportion of $bb$ individuals. We need to find the proportion of $Bb$ individuals, and this equals $2pq$ from the notes above. It boils down to simple maths now, from $p^2,$ we get $p.$ As $ p + q = 1,$ we can find $q$. We can then find $2pq$ and then we add up $p^2$ and $2pq$ to give us our final answer, $p^2 + 2pq.$ This is done for every value in our array.
 
 ### Code
 <script src="https://gist.github.com/adijo/469c23af64ac64a48d82.js"></script>
