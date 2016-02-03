@@ -41,11 +41,11 @@ with constraints
 
 $$ \sum_{i = 1}^p x_i = 1 $$
 
-$$ \sum_{i = p + 1}^k x_i = 2 $$
+$$ \newline \sum_{i = p + 1}^k x_i = 2 $$
 
-$$ \sum_{i = k + 1}^n x_i = 1 $$
+$$ \newline \sum_{i = k + 1}^n x_i = 1 $$
 
-$$ \sum_{i = 1}^n x_i \cdot c_i \leq B $$
+$$ \newline \sum_{i = 1}^n x_i \cdot c_i \leq B $$
 
 
 Thus, we have formulated our integer linear program. To solve this in python, I used the [PuLP](https://pythonhosted.org/PuLP/) module. Our `Solver` module expects an array of players, where each player is defined as a `5-tuple` of `(name, utility, cost, position, team).` The `utility` part is interesting, and was obtained online from various sources as the expected future utility of the player. This can be an interesting machine learning project itself, predicting the expected utility of a player, something that I will look into in the future. The number of each type of players is parameterized and can be set as desired. 
