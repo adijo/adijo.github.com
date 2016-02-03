@@ -10,6 +10,8 @@ I study computer science and mathematics. Currently, I live in Pune, India.
 
 * I write software that lives on [GitHub.](https://github.com/adijo) 
 
+* On my [blog,](http://adijo.github.io/blog/) I primarily write about programming and maths problems that I have worked on. I have started doing this from January 2016. This page also has some of my study notes. 
+
 * You can read about my [projects](http://adijo.github.io/projects/), [professional](http://adijo.github.io/professional/) and [research](http://adijo.github.io/research/) experience.
 
 * I did some algorithmic programming competitions
