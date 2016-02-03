@@ -4,8 +4,9 @@ title: Machine Learning - Regression
 use_math: true
 ---
 
-In these series of blog posts, I aim to highlight key points in my study of Machine Learning. I will write about key points that I come across from multiple sources, including the [ISLR book](http://www-bcf.usc.edu/~gareth/ISL/) and the [Machine Learning](https://www.coursera.org/specializations/machine-learning) courses on Coursera by the University of Washington. These will serve as notes for myself and I will be glad if it helps other people as well. These notes only serve as a high level summary of the topics and by no means are comprehensive. These notes are also informal in nature; lacking proper terminology or notation at times. This is done intentionally.
+In these series of blog posts, I aim to highlight key points in my study of Machine Learning, having referred to the [ISLR book](http://www-bcf.usc.edu/~gareth/ISL/) and the [Machine Learning](https://www.coursera.org/specializations/machine-learning) courses on Coursera by the University of Washington. 
 
+These will serve as notes for myself and I will be glad if it helps other people as well. They are only a high level summary of the topics and by no means are comprehensive.
 
 ### Introduction
 
