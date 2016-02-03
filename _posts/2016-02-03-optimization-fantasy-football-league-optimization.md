@@ -51,6 +51,7 @@ $$ \newline \sum_{i = 1}^n x_i \cdot c_i \leq B $$
 Thus, we have formulated our integer linear program. To solve this in python, I used the [PuLP](https://pythonhosted.org/PuLP/) module. Our `Solver` module expects an array of players, where each player is defined as a `5-tuple` of `(name, utility, cost, position, team).` The `utility` part is interesting, and was obtained online from various sources as the expected future utility of the player. This can be an interesting machine learning project itself, predicting the expected utility of a player, something that I will look into in the future. The number of each type of players is parameterized and can be set as desired. 
 
 *Some brackets in my code will be displayed incorrectly and this is a Jekyll formatting issue.*
+
 ### Code
 
 <script src="https://gist.github.com/adijo/00ac1c350822c34ff7b7.js"></script>
