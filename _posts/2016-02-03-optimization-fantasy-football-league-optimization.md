@@ -21,7 +21,7 @@ For the midfielders,
 
 $$ \sum_{i = p + 1}^k x_i = 2 $$
 
-as we need $2$ defenders.
+as we need $2$ midfielders.
 
 Finally,
 
