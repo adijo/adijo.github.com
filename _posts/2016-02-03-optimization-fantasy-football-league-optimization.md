@@ -7,7 +7,7 @@ use_math: true
 Some of my friends play a lot of [FPL.](http://fantasy.premierleague.com/) One of them asked me an interesting problem. Out of the existing players, he wanted to choose 4 players, a defender, two midfielders and one forward such that he would get maximum expected points within a budget.
 
 ### Analysis
-This sounded suspiciously a lot like the knapsack problem. Each player $ p_i $ had an expected profit $ p_i $ and a cost of $ c_i.$ Let the budget be $ B.$ To solve this problem, I realised that we could formulate an integer linear program. We denote an indicator variable $ x_i $ for each player which could take on values of $\{0, 1\}.$ Thus, we needed to maximize the following quantity, where $ n $ denotes the number of players.
+This sounded suspiciously a lot like the knapsack problem. Each player $ p_i $ had an expected profit $ p_i $ and a cost of $ c_i.$ Let the budget be $ B.$ To solve this problem, I realised that we could formulate an integer linear program. We denote an indicator variable $ x_i $ for each player which could take on values of $\{0, 1\}$. Thus, we needed to maximize the following quantity, where $ n $ denotes the number of players.
 
 $$ x_1 \cdot p_1 + x_2 \cdot p_2 + x_3 \cdot p_3 + \cdots + x_n \cdot p_n = \sum_{i = 1}^n x_i \cdot p_i $$  
 
