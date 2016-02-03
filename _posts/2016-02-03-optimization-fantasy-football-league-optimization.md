@@ -40,8 +40,11 @@ $$ \text{Maximize} \sum_{i = 1}^n x_i \cdot p_i $$
 with constraints
 
 $$ \sum_{i = 1}^p x_i = 1 $$
+
 $$ \sum_{i = p + 1}^k x_i = 2 $$
+
 $$ \sum_{i = k + 1}^n x_i = 1 $$
+
 $$ \sum_{i = 1}^n x_i \cdot c_i \leq B $$
 
 
