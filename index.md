@@ -6,9 +6,9 @@ use_math: true
 
 # Greetings,
 
-I study computer science and mathematics. Currently, I live in Pune, India.
+I study computer science and mathematics and work as a Software Development Engineer at Amazon Web Services. Currently, I live in The Hague, Netherlands.
 
-* I write software that lives on [GitHub.](https://github.com/adijo) 
+* I write software that is hosted on [GitHub.](https://github.com/adijo) 
 
 * On my [blog,](http://adijo.github.io/blog/) I primarily write about programming and maths problems that I have worked on. I have started doing this from January 2016. This page also has some of my study notes. 
 
