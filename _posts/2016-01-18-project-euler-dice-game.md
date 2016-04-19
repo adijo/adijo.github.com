@@ -18,9 +18,9 @@ pete = enumerate all possible sums for a 4-faced dice after rolling 9 times.
 colin = enumerate all possible sums for a 6-faced dice after rolling 6 times.
 acc = 0
 for p in pete:
-	for c in colin:
-		if p > c:
-			acc += 1
+    for c in colin:
+        if p > c:
+            acc += 1
 
 print float(acc) / (len(pete) * len(colin))
 {% endhighlight %}
