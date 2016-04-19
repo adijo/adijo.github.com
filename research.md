@@ -18,4 +18,4 @@ We present GePhCorT (Genotype Phenotype Correlation Tool), an algorithm that rel
 `multiprocessing` modules. Code is on [GitHub.](https://github.com/Farhat/gephcort)
 
 ### Early Metazoan Repeats Database
-Built a full stack web application with features that include intersections, differences and unions of large sets and an extremely low latency autocomplete search tool. The web tool was built to efficiently and expressively query biological data. The content is currently being revised but the core functionality can be viewed [here.](https://emetarep.org)
+Built a full stack web application with features that include intersections, differences and unions of large sets and an extremely low latency autocomplete search tool. The web tool was built to efficiently and expressively query biological data. The content is currently being revised but the core functionality can be viewed [here.](http://www.emetarep.org/)
