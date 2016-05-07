@@ -6,18 +6,17 @@ redcarpet:
 # Permalinks
 permalink:        pretty
 
-avatar: https://lh3.googleusercontent.com/63qIoCQMpeYlbeOSVNEEFqIG-fjLyChZahslTwVw_5UmGV2jHw89KelRjlavNQiKmx5c=w1920-h1080-rw-no
-
 # Setup
 title:            Aditya Joshi
 tagline:          'Wanderer'
-description:      'A common platform to compile information about my personal projects, research and professional experience.'
+description:      'Information about my personal projects, research and professional experience.'
 url:              http://adijo.github.io/
 baseurl:          /
 
 author:
   name:           'Aditya Joshi'
   url:            https://twitter.com/1adityajoshi
+  avatar: https://lh3.googleusercontent.com/63qIoCQMpeYlbeOSVNEEFqIG-fjLyChZahslTwVw_5UmGV2jHw89KelRjlavNQiKmx5c=w1920-h1080-rw-no
 
 paginate:         5
 
