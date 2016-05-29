@@ -10,6 +10,5 @@ The only place where they differ are the choice of the starting node.
 *  Eulerian Cycle: The choice of start node does not matter.
 *  Eulerian Path: The start node must be that node which has an outdegree that is one greater than its indegree.
 
-
 ### Code
 <script src="https://gist.github.com/adijo/15347b2d708978380ee67d99558e52d4.js"></script>
