@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Leetcode - Verify Preorder Serialization of a Binary Tree
-Raw
 ---
 
 
