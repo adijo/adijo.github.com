@@ -20,6 +20,7 @@ This [problem](https://leetcode.com/problems/increasing-triplet-subsequence/) wa
 
 `--(1)--i---(2)---j----(3)----k`
 
+
 *  There are two cases for $i.$ Either $i$ is the smallest number in the region `1` and `2` or it is not. If it *is,* then our algorithm finds it. If it *is not,* then our algorithm finds the smallest element in regions `1` and `2,` call it $i^{\*}$. This still satisfies the condition $ i^{\*} < j < k.$
 
 *  The same argument applies for $j.$ 
