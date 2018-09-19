@@ -6,6 +6,10 @@ title: Courses
   Some courses that I took during my undergraduate education along with MOOC's.
 </p>
 
+### University of Montreal 
+* [Fundamentals of Machine Learning](https://admission.umontreal.ca/cours-et-horaires/cours/ift-6390/) (In Progress) taught by [Ioannis Mitliagkas.](http://mitliagkas.github.io/)
+* [Probabalistic Graphical Models](http://www.iro.umontreal.ca/~slacoste/teaching/ift6269/A18/) (In Progress) taught by [Simon Lacoste-Julien.](https://www.di.ens.fr/~slacoste/)
+
 ### University of Pune
 
 * Engineering Mathematics I, II and III.
