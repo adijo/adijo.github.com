@@ -4,9 +4,9 @@ title: Home
 use_math: true
 ---
 
-# Greetings,
+# Hey!
 
-I study computer science and mathematics and work as a Software Development Engineer at Amazon Web Services. Currently, I live in The Hague, Netherlands.
+I'm currently pursuing a Master's degree specializing in Artificial Intelligence at the University of Montreal, Quebec, Canada. Previously, I worked as a Software Development Engineer at Amazon Web Services in The Hague, Netherlands.
 
 * I write software that is hosted on [GitHub.](https://github.com/adijo) 
 
