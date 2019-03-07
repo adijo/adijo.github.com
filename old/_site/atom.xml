@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Aditya Joshi</title>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2019-03-07T18:31:25-05:00</updated>
+ <id>http://localhost:4000</id>
+ <author>
+   <name>Aditya Joshi</name>
+   <email></email>
+ </author>
+
+ 
+ <entry>
+   <title>Leetcode - Integer Break</title>
+   <link href="http://localhost:4000/2016/06/05/leetcode-integer-break/"/>
+   <updated>2016-06-05T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2016/06/05/leetcode-integer-break</id>
+   <content type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/integer-break/&quot;&gt;problem&lt;/a&gt; was a modification of the popular dynamic programming problem based on rod cutting with some twists.&lt;/p&gt;
+
+&lt;h3 id=&quot;analysis&quot;&gt;Analysis&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;For an integer &lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt;, we define a dynamic programming state &lt;code class=&quot;highlighter-rouge&quot;&gt;dp[i]&lt;/code&gt; which indicates the maximum product you can get for integers that sum up to &lt;code class=&quot;highlighter-rouge&quot;&gt;i.&lt;/code&gt; (the quantity required by the problem).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;For a fixed &lt;code class=&quot;highlighter-rouge&quot;&gt;i,&lt;/code&gt; we consider all possibilities for &lt;code class=&quot;highlighter-rouge&quot;&gt;j&lt;/code&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;[1 ... i - 1]&lt;/code&gt;
+and find a maximum value amongst all those tuples. Thus, to find &lt;code class=&quot;highlighter-rouge&quot;&gt;dp[i],&lt;/code&gt; we have &lt;code class=&quot;highlighter-rouge&quot;&gt;j&lt;/code&gt; going from &lt;code class=&quot;highlighter-rouge&quot;&gt;[1 ... i - 1]&lt;/code&gt; and we find the maximum value for &lt;code class=&quot;highlighter-rouge&quot;&gt;max(dp[j], j) * max(dp[i - j], i - j).&lt;/code&gt; The reason we take the &lt;code class=&quot;highlighter-rouge&quot;&gt;max&lt;/code&gt; operation here can be explained best with an example.&lt;/li&gt;
+  &lt;li&gt;Consider finding &lt;code class=&quot;highlighter-rouge&quot;&gt;dp[8].&lt;/code&gt; We iterate to get tuples &lt;code class=&quot;highlighter-rouge&quot;&gt;(7, 1), (6, 2), (5, 	  3), (4, 4).&lt;/code&gt; Now, the maximum is obtained with &lt;code class=&quot;highlighter-rouge&quot;&gt;(6, 2).&lt;/code&gt; If we just used &lt;code class=&quot;highlighter-rouge&quot;&gt;dp[6] * dp[2],&lt;/code&gt; we would not get the correct answer as the &lt;code class=&quot;highlighter-rouge&quot;&gt;dp&lt;/code&gt; part does not include the number itself. My explanation of this is not a very good one but I am quite sleepy right now ;). Just work out the &lt;code class=&quot;highlighter-rouge&quot;&gt;dp[8]&lt;/code&gt; example by hand and you will figure it out.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/6676547766e649833f3d4636e97a0595.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Leetcode - House Robber III</title>
+   <link href="http://localhost:4000/2016/06/05/leetcode-house-robber-iii/"/>
+   <updated>2016-06-05T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2016/06/05/leetcode-house-robber-iii</id>
+   <content type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/house-robber-iii/&quot;&gt;one&lt;/a&gt; was a standard dynamic programming on a tree problem.&lt;/p&gt;
+
+&lt;h3 id=&quot;analysis&quot;&gt;Analysis&lt;/h3&gt;
+
+&lt;p&gt;Some key observations were:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If we rob a node, we cannot rob its children.&lt;/li&gt;
+  &lt;li&gt;If we do not rob a node, we &lt;em&gt;can&lt;/em&gt; rob &lt;em&gt;both&lt;/em&gt; its children.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Thus, we maintain a state $dp(\text{node}, \text{flag})$ that indicates the maximum value that we can rob for a tree rooted at this $\text{node}$ with a particular $\text{flag}.$ Thus, our transitions are as follows.&lt;/p&gt;
+
+&lt;p&gt;For a state &lt;code class=&quot;highlighter-rouge&quot;&gt;dp[node][flag],&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;if flag is true&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;dp[node][flag] = dp[node.left][false] + dp[node.right][false]&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;if flag is false&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;dp[node][flag] = max(dp[node.left][false] + dp[node.right][false], 
+					dp[node.left][true] + dp[node.right][true] + node.val)&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/557107228e95f7dea9b2e180b7829db1.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Leetcode - Game of Life</title>
+   <link href="http://localhost:4000/2016/06/05/leetcode-game-of-life/"/>
+   <updated>2016-06-05T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2016/06/05/leetcode-game-of-life</id>
+   <content type="html">&lt;p&gt;This was an implementation &lt;a href=&quot;https://leetcode.com/problems/game-of-life/&quot;&gt;problem&lt;/a&gt; so there’s not much to explain. One key point is that to transform the board &lt;em&gt;in place&lt;/em&gt;, we use dummy variables called &lt;code class=&quot;highlighter-rouge&quot;&gt;MADE_ALIVE&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;MADE_DEAD&lt;/code&gt; to indicate cells that are to be converted to &lt;code class=&quot;highlighter-rouge&quot;&gt;ALIVE&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;DEAD&lt;/code&gt; respectively in the next iteration and are &lt;strong&gt;not&lt;/strong&gt; to be considered as &lt;code class=&quot;highlighter-rouge&quot;&gt;ALIVE&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;DEAD&lt;/code&gt; for &lt;em&gt;this&lt;/em&gt; iteration.&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/108b9b861ceb16d20210daef6200a14b.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Leetcode - Verify Preorder Serialization of a Binary Tree</title>
+   <link href="http://localhost:4000/2016/06/04/leetcode-verify-preorder-serialization-of-a-binary-tree/"/>
+   <updated>2016-06-04T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2016/06/04/leetcode-verify-preorder-serialization-of-a-binary-tree</id>
+   <content type="html">&lt;p&gt;Okay I am feeling quite lazy to write an explanation to this &lt;a href=&quot;https://leetcode.com/problems/verify-preorder-serialization-of-a-binary-tree/&quot;&gt;problem&lt;/a&gt; right now, but the code &lt;em&gt;might&lt;/em&gt; be enough to document itself. Sorry if you were expecting a detailed explanation, but I’ll try and provide one when I’m more enthusiastic!&lt;/p&gt;
+
+&lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/099abf27a160f61e0b8a2a4ee7d6b5a9.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Leetcode - Increasing Triplet Subsequence</title>
+   <link href="http://localhost:4000/2016/06/04/leetcode-increasing-triplet-subsequence/"/>
+   <updated>2016-06-04T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2016/06/04/leetcode-increasing-triplet-subsequence</id>
+   <content type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/increasing-triplet-subsequence/&quot;&gt;problem&lt;/a&gt; was quite tricky. I took some time and a hint to find this solution. I will first present the algorithm and then explain the intuition.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Let $i$ be the smallest number found and $j$ be the second smallest. We initialize these to be positive infinity.&lt;/li&gt;
+  &lt;li&gt;We iterate through the elements in the list one by one, updating $i$ to be the smallest number encountered so far, $j$ to be the second smallest.&lt;/li&gt;
+  &lt;li&gt;If at any point we find that $i &amp;lt; j &amp;lt; k$, we return &lt;code class=&quot;highlighter-rouge&quot;&gt;True.&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;At the end, if we don’t find any such triplet, we return &lt;code class=&quot;highlighter-rouge&quot;&gt;False.&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/56193cd8a85c875622802163fb32ee95.js&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;intuition&quot;&gt;Intuition&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Consider the the solution looks like the following with $i, j$ and $k$ having the same meaning as before. Our current algorithm obviously works. But how can we prove that if an answer exists, it always finds &lt;em&gt;an&lt;/em&gt; answer.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--(1)--i---(2)---j----(3)----k&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;There are two cases for $i.$ Either $i$ is the smallest number in the region &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;2&lt;/code&gt; or it is not. If it &lt;em&gt;is,&lt;/em&gt; then our algorithm finds it. If it &lt;em&gt;is not,&lt;/em&gt; then our algorithm finds the smallest element in regions &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;2,&lt;/code&gt; call it $i^{*}$. This still satisfies the condition $ i^{*} &amp;lt; j &amp;lt; k.$&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The same argument applies for $j.$&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Thus, our algorithm finds a solution if one exists.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rosalind - Fleury's Algorithm - Eulerian Path and Eulerian Cycle</title>
+   <link href="http://localhost:4000/2016/05/29/rosalind-fleurys-algorithm-eulerian-path-and-eulerian-cycle/"/>
+   <updated>2016-05-29T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2016/05/29/rosalind-fleurys-algorithm-eulerian-path-and-eulerian-cycle</id>
+   <content type="html">&lt;p&gt;This was an implementation &lt;a href=&quot;http://rosalind.info/problems/ba3f/&quot;&gt;problem&lt;/a&gt; and hence I will not be discussing the logic used. &lt;a href=&quot;https://www.youtube.com/watch?v=Lr6C8u-FDL8&quot;&gt;This&lt;/a&gt; is a very good explanation about this algorithm. It applies to both the algorithms - to find an eulerian path and eulerian circuit.&lt;/p&gt;
+
+&lt;p&gt;The only place where they differ are the choice of the starting node.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Eulerian Cycle: The choice of start node does not matter.&lt;/li&gt;
+  &lt;li&gt;Eulerian Path: The start node must be that node which has an outdegree that is one greater than its indegree.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/15347b2d708978380ee67d99558e52d4.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rosalind - Genome Assembly with Perfect Coverage</title>
+   <link href="http://localhost:4000/2016/05/07/rosalind-genome-assembly-with-perfect-coverage/"/>
+   <updated>2016-05-07T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2016/05/07/rosalind-genome-assembly-with-perfect-coverage</id>
+   <content type="html">&lt;p&gt;Today’s &lt;a href=&quot;http://rosalind.info/problems/pcov/&quot;&gt;problem&lt;/a&gt; required a combination of several techniques. First, we needed to construct a &lt;a href=&quot;https://en.wikipedia.org/wiki/De_Bruijn_graph&quot;&gt;De Bruin&lt;/a&gt; graph. Second, we had to find a Hamiltonian circuit and finally, build a KMP (Knuth-Morris-Pratt) prefix table to reduce our result into the final required answer.&lt;/p&gt;
+
+&lt;h3 id=&quot;analysis&quot;&gt;Analysis&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;The problem mentioned that there was one distinct simple cycle in the De Bruin graph. This made it obvious that we had to find a Hamiltonian circuit (find a path that starts and finishes at the same node such that each node in the graph is visited exactly once). Once we found a path, we had to combine it to a single string which was done as follows:
+For a path &lt;code class=&quot;highlighter-rouge&quot;&gt;[ACCC, CCCT, CCTG]&lt;/code&gt;, we take the first string and then append the last character of every other string from index &lt;code class=&quot;highlighter-rouge&quot;&gt;1.&lt;/code&gt; This path is not Hamiltonian, it is just to explain how the path is merged.&lt;/li&gt;
+  &lt;li&gt;After running my code against the sample input, I noticed that my output
+is longer than the expected answer. After a few minutes of looking at my answer, I noticed that since the strings are circular, they wrap around after the end. Hence some part of the suffix was excessive as it was equivalent to the prefix. Now we use the KMP algorithm to build a prefix table to find the longest prefix which is also a suffix of the string. We could have done this in a brute force manner as well. Building a KMP table can be complicated to explain, but I recommend watching &lt;a href=&quot;https://www.youtube.com/watch?v=KG44VoDtsAA&quot;&gt;this&lt;/a&gt; video.&lt;/li&gt;
+  &lt;li&gt;And that’s it, after we find the length of the longest prefix which is also a prefix, we trim those many characters from the previous step and return the new string.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/6f363fe19ab27344815a2fcdec738eef.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rosalind - Generate d-neighbourhood Of A String</title>
+   <link href="http://localhost:4000/2016/05/05/rosalind-generate-d-neighbourhood-of-a-string/"/>
+   <updated>2016-05-05T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2016/05/05/rosalind-generate-d-neighbourhood-of-a-string</id>
+   <content type="html">&lt;h3 id=&quot;analysis&quot;&gt;Analysis&lt;/h3&gt;
+&lt;p&gt;This &lt;a href=&quot;http://rosalind.info/problems/ba1n/&quot;&gt;problem&lt;/a&gt; was an implementation problem - one that required a depth first graph traversal while keeping track of what indices we have already made changes to. This way we would no repeatedly change those characters and thereby violating the constraints of the problem. I kept track of these using a &lt;code class=&quot;highlighter-rouge&quot;&gt;HashSet&lt;/code&gt; which is a set implementation in Java.&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/ba198be706a81a396a495bd52b9b4fb2.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rosalind - Constructing a De Bruin Graph</title>
+   <link href="http://localhost:4000/2016/05/05/rosalind-constructing-a-debruin-graph/"/>
+   <updated>2016-05-05T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2016/05/05/rosalind-constructing-a-debruin-graph</id>
+   <content type="html">&lt;h3 id=&quot;analysis&quot;&gt;Analysis&lt;/h3&gt;
+
+&lt;p&gt;This was a rather straightforward implementation &lt;a href=&quot;http://rosalind.info/problems/dbru/&quot;&gt;problem.&lt;/a&gt; The problem invovled the construction of a &lt;a href=&quot;https://en.wikipedia.org/wiki/De_Bruijn_graph&quot;&gt;De Bruin&lt;/a&gt; graph which a directed graph that has several biological applications. I am feeling pretty lazy so I will not explain my (rather poorly written) code, but here is a good &lt;a href=&quot;https://www.youtube.com/watch?v=f-ecmECK7lw&quot;&gt;video&lt;/a&gt; that explains how to construct such a graph.&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+
+&lt;script src=&quot;https://gist.github.com/adijo/d0cdcfbbf3b3d4629072d2fabb1cfaa0.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rosalind - Global Alignment with Constant Gap Penalty</title>
+   <link href="http://localhost:4000/2016/04/26/rosalind-global-alignment-with-constant-gap-penalty/"/>
+   <updated>2016-04-26T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2016/04/26/rosalind-global-alignment-with-constant-gap-penalty</id>
+   <content type="html">&lt;p&gt;This &lt;a href=&quot;http://rosalind.info/problems/gcon/&quot;&gt;problem&lt;/a&gt; was a variant of &lt;a href=&quot;http://rosalind.info/problems/glob/&quot;&gt;this&lt;/a&gt; problem.&lt;/p&gt;
+
+&lt;h3 id=&quot;analysis&quot;&gt;Analysis&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Some state had to be maintained to indicate that there had been a previous contiguous gap that had been inserted in each string. This can be done by introducing a boolean flag which is &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt; if there was a gap just before this character and &lt;code class=&quot;highlighter-rouge&quot;&gt;0&lt;/code&gt; otherwise for string &lt;code class=&quot;highlighter-rouge&quot;&gt;s&lt;/code&gt;. Similarly, there is another boolean flag for string &lt;code class=&quot;highlighter-rouge&quot;&gt;t.&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Thus, instead of a 2D dynamic programming state, we use a 4D state which is defined as follows: &lt;code class=&quot;highlighter-rouge&quot;&gt;dp[i][j][gapS][gapT]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;This gives us the maximum alignment for strings (in python notation) &lt;code class=&quot;highlighter-rouge&quot;&gt;s[:i+1]&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;t[:j+1]&lt;/code&gt; with gap states &lt;code class=&quot;highlighter-rouge&quot;&gt;gapS&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;gapT.&lt;/code&gt; There are initially set to &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt; because while starting from the right of the strings, there are no previous contiguous gaps introduced.&lt;/li&gt;
+  &lt;li&gt;Now, for any given state with parameters &lt;code class=&quot;highlighter-rouge&quot;&gt;i, j, gapS, gapT,&lt;/code&gt; if &lt;code class=&quot;highlighter-rouge&quot;&gt;gapS&lt;/code&gt; is &lt;code class=&quot;highlighter-rouge&quot;&gt;true,&lt;/code&gt; this means that we have already levied a gap penalty for this state and therefore while introducing another gap, no penalty should be levied. The same is true for &lt;code class=&quot;highlighter-rouge&quot;&gt;gapT.&lt;/code&gt; The state transitions are clearer after looking at my highly (ahem) verbose java code.&lt;/li&gt;
+  &lt;li&gt;For the Blosum65 scoring matrix, I generated this by parsing a Blosum65 text file that looked like this:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src=&quot;https://gist.github.com/adijo/bd6672f6eac212294004e3a68f4e62ad.js&quot;&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;I like the idea of using code to generate code, so I wrote a python script that reads this file and generates some Java code that populates a class that exposes a static &lt;code class=&quot;highlighter-rouge&quot;&gt;getScore(a, b)&lt;/code&gt; method which gives you the Blosum65 score for characters &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;b.&lt;/code&gt; Now this piece of code just generates the &lt;code class=&quot;highlighter-rouge&quot;&gt;HashMap&lt;/code&gt; but you can also generate the entire Java class.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src=&quot;https://gist.github.com/adijo/1eb53b2bb3e0a3bcb70e55c7c4ad5986.js&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+
+&lt;p&gt;Now for the actual Java code, which is organised into two classes that I wrote and one separate class that parses fasta.&lt;/p&gt;
+
+&lt;h4 id=&quot;blosum65java&quot;&gt;Blosum65.java&lt;/h4&gt;
+
+&lt;script src=&quot;https://gist.github.com/adijo/f60725e3928e1f059634d4793d463c32.js&quot;&gt;&lt;/script&gt;
+
+&lt;h4 id=&quot;fastasequencejava&quot;&gt;FastaSequence.java&lt;/h4&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/7e81ec8a67d612a0ea515090ab92419f.js&quot;&gt;&lt;/script&gt;
+
+&lt;h4 id=&quot;mainjava&quot;&gt;Main.java&lt;/h4&gt;
+
+&lt;script src=&quot;https://gist.github.com/adijo/ede2e6a044069dac2d8197b9ce0c02be.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rosalind - Counting Optimal Alignments</title>
+   <link href="http://localhost:4000/2016/04/17/rosalind-counting-optimal-alignments/"/>
+   <updated>2016-04-17T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2016/04/17/rosalind-counting-optimal-alignments</id>
+   <content type="html">&lt;h3 id=&quot;analysis&quot;&gt;Analysis&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;In this &lt;a href=&quot;http://rosalind.info/problems/ctea/&quot;&gt;problem,&lt;/a&gt; we are asked to find the number of optimal edit alignments. I figured that at first, we can find the value of the actual optimal alignment.&lt;/li&gt;
+  &lt;li&gt;After doing this, we can define a recursive relation like so: For a string &lt;code class=&quot;highlighter-rouge&quot;&gt;s,&lt;/code&gt; and string &lt;code class=&quot;highlighter-rouge&quot;&gt;t,&lt;/code&gt; we define &lt;code class=&quot;highlighter-rouge&quot;&gt;dp[i][j]&lt;/code&gt; to be the total number of alignments which have the optimal alignment value. Let this optimal alignment value (that we found in the previous step be &lt;code class=&quot;highlighter-rouge&quot;&gt;opt.&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;ARTICLE IN PROGRESS&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+
+&lt;p&gt;I felt like writing Java code in its full painful verbosity today,
+so here you go.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/adijo/2e32e5d8f34d110ca2403ded4ccff3cd.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Optimization - Fantasy Football League</title>
+   <link href="http://localhost:4000/2016/02/03/optimization-fantasy-football-league-optimization/"/>
+   <updated>2016-02-03T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/02/03/optimization-fantasy-football-league-optimization</id>
+   <content type="html">&lt;p&gt;Some of my friends play a lot of &lt;a href=&quot;http://fantasy.premierleague.com/&quot;&gt;FPL.&lt;/a&gt; One of them asked me an interesting problem. Out of the existing players, he wanted to choose 4 players, a defender, two midfielders and one forward such that he would get maximum expected points within a budget.&lt;/p&gt;
+
+&lt;h3 id=&quot;analysis&quot;&gt;Analysis&lt;/h3&gt;
+&lt;p&gt;This sounded suspiciously a lot like the knapsack problem. Each player $ i $ had an expected profit $ p_i $ and a cost of $ c_i.$ Let the budget be $ B.$ To solve this problem, I realised that we could formulate an integer linear program. We denote an indicator variable $ x_i $ for each player which could take on values of ${0, 1}$. Thus, we needed to maximize the following quantity, where $ n $ denotes the number of players.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;x_1 \cdot p_1 + x_2 \cdot p_2 + x_3 \cdot p_3 + \cdots + x_n \cdot p_n = \sum_{i = 1}^n x_i \cdot p_i&lt;/script&gt;
+
+&lt;p&gt;To enforce the condition that we need only a certain amount of midfielders, forwards and defenders, we associate each indicator variable $ x_i $ with a particular class of player. We then add constraints as follows. In our dataset, let us assume that players $ x_i \in [1 \cdots p] $ are defenders, $ x_i \in [p + 1 \cdots k] $ are midfielders and $ x_i \in [ k + 1 \cdots n ] $ are forwards. We add constraints to this as follows.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum_{i = 1}^p x_i = 1&lt;/script&gt;
+
+&lt;p&gt;because out of the $ p $ defenders, we only want $ 1. $&lt;/p&gt;
+
+&lt;p&gt;For the midfielders,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum_{i = p + 1}^k x_i = 2&lt;/script&gt;
+
+&lt;p&gt;as we need $2$ midfielders.&lt;/p&gt;
+
+&lt;p&gt;Finally,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum_{i = k + 1}^n x_i = 1&lt;/script&gt;
+
+&lt;p&gt;for $ 1 $ forward.&lt;/p&gt;
+
+&lt;p&gt;The final constraint is that the sum of the cost of the chosen players should not exceed the budget.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;x_1 \cdot c_1 +  x_2 \cdot c_2 + x_3 \cdot c_3 + \cdots + x_n \cdot c_n \leq B&lt;/script&gt;
+
+&lt;p&gt;To summarize, here is the full linear program.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\text{Maximize} \sum_{i = 1}^n x_i \cdot p_i&lt;/script&gt;
+
+&lt;p&gt;with constraints&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum_{i = 1}^p x_i = 1&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum_{i = p + 1}^k x_i = 2&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum_{i = k + 1}^n x_i = 1&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum_{i = 1}^n x_i \cdot c_i \leq B&lt;/script&gt;
+
+&lt;p&gt;Thus, we have formulated our integer linear program. To solve this in python, I used the &lt;a href=&quot;https://pythonhosted.org/PuLP/&quot;&gt;PuLP&lt;/a&gt; module. Our &lt;code class=&quot;highlighter-rouge&quot;&gt;Solver&lt;/code&gt; module expects an array of players, where each player is defined as a &lt;code class=&quot;highlighter-rouge&quot;&gt;5-tuple&lt;/code&gt; of &lt;code class=&quot;highlighter-rouge&quot;&gt;(name, utility, cost, position, team).&lt;/code&gt; The &lt;code class=&quot;highlighter-rouge&quot;&gt;utility&lt;/code&gt; part is interesting, and was obtained online from various sources as the expected future utility of the player. This can be an interesting machine learning project itself, predicting the expected utility of a player, something that I will look into in the future. The number of each type of players is parameterized and can be set as desired.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Some brackets in my code will be displayed incorrectly and this is a Jekyll formatting issue.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+
+&lt;script src=&quot;https://gist.github.com/adijo/00ac1c350822c34ff7b7.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Machine Learning - Regression</title>
+   <link href="http://localhost:4000/2016/02/01/machine-learning-regression/"/>
+   <updated>2016-02-01T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/02/01/machine-learning-regression</id>
+   <content type="html">&lt;p&gt;In these series of blog posts, I aim to highlight key points in my study of Machine Learning, having referred to the &lt;a href=&quot;http://www-bcf.usc.edu/~gareth/ISL/&quot;&gt;ISLR book&lt;/a&gt; and the &lt;a href=&quot;https://www.coursera.org/specializations/machine-learning&quot;&gt;Machine Learning&lt;/a&gt; courses on Coursera by the University of Washington.&lt;/p&gt;
+
+&lt;p&gt;These will serve as notes for myself and I will be glad if it helps other people as well. They are only a high level summary of the topics and by no means are comprehensive.&lt;/p&gt;
+
+&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Consider the case of predicting an output that depends only on one input, $x.$ There is a &lt;em&gt;true&lt;/em&gt; function associated with whatever phenomenon we are trying to model. Let this function be $f(x) + \epsilon.$ The $\epsilon$ term is noise which is normally distributed with $ 0 $ mean.&lt;/li&gt;
+  &lt;li&gt;We are trying to build a function $f’(x),$ called the &lt;em&gt;hypothesis&lt;/em&gt; that &lt;em&gt;approximates&lt;/em&gt; $f(x).$&lt;/li&gt;
+  &lt;li&gt;Typically, we &lt;em&gt;train&lt;/em&gt; a model to minimize the &lt;em&gt;residual sum of squares,&lt;/em&gt; or $\text{RSS}$ for short. This is just the sum of square of errors accumulated between the actual value and predicted value, $ \sum_{i = 0}^n \left(y - f(x) \right)^2.$ Other measures of fit are the $R^2$ statistic, or the goodness of fit. In short, the $R^2$ statistic tries to explain how much of the variability of $ y $ is explained by the variability in $x.$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;regression&quot;&gt;Regression&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;The hypothesis function is linear in the coefficients but non-linear with respect to $x.$ This means that features such as $x^3$ or $x^2$ are allowed. We can simply define a new feature $x_3 = x_2^3 + x_1.$&lt;/li&gt;
+  &lt;li&gt;Linear regression can be used to model non-linear relationships by transforming the input space. This is called basis function expansion. What this essentially means is that for each $ x_i $ in our input space, we apply a &lt;em&gt;transformation&lt;/em&gt; by using what is called a basis function $ \phi(x). $&lt;/li&gt;
+  &lt;li&gt;The complexity of a model basically captures its &lt;em&gt;flexibility,&lt;/em&gt; or &lt;em&gt;expressive power.&lt;/em&gt; This means that the model can have wild looking curves and capture more data points than a simpler model. For example, a quadratic model can fit more data points than a simple line.&lt;/li&gt;
+  &lt;li&gt;As the complexity of a model increases, there are two competing sources of error that arise, the &lt;em&gt;bias&lt;/em&gt; and the &lt;em&gt;variance.&lt;/em&gt; These are the two sources of error apart from $ \epsilon, $ which is an &lt;em&gt;irreducible&lt;/em&gt; error.&lt;/li&gt;
+  &lt;li&gt;If we make a very flexible model, consisting of very high order polynomials, our model might become susceptible to overfitting the data. A technique called &lt;strong&gt;regularization&lt;/strong&gt; is used to reduce the variance of the model.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;ARTICLE IN PROGRESS&lt;/em&gt;&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rosalind - Interleaving Two Motifs</title>
+   <link href="http://localhost:4000/2016/01/31/rosalind-interleaving-two-motifs/"/>
+   <updated>2016-01-31T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/31/rosalind-interleaving-two-motifs</id>
+   <content type="html">&lt;p&gt;I had explained a very similar &lt;a href=&quot;http://rosalind.info/problems/scsp/&quot;&gt;problem&lt;/a&gt; on &lt;a href=&quot;https://www.quora.com/What-is-the-intuitive-way-of-deriving-a-DP-solution-to-check-if-a-given-string-C-is-interleaving-of-2-strings-A-and-B&quot;&gt;Quora.&lt;/a&gt; After constructing the memoization table, we simply traverse the grid to reconstruct our solution.&lt;/p&gt;
+
+&lt;h3 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h3&gt;
+
+&lt;p&gt;&lt;span class=&quot;quora-content-embed&quot; data-name=&quot;What-is-the-intuitive-way-of-deriving-a-DP-solution-to-check-if-a-given-string-C-is-interleaving-of-2-strings-A-and-B/answer/Aditya-N-Joshi&quot;&gt;Read &lt;a class=&quot;quora-content-link&quot; data-width=&quot;559&quot; load-full-answer=&quot;False&quot; data-key=&quot;8927dbf4d28c9300e83c87af5a79aa23&quot; data-id=&quot;5787408&quot; data-embed=&quot;bojnhmn&quot; href=&quot;https://www.quora.com/What-is-the-intuitive-way-of-deriving-a-DP-solution-to-check-if-a-given-string-C-is-interleaving-of-2-strings-A-and-B/answer/Aditya-N-Joshi&quot; data-type=&quot;answer&quot; data-height=&quot;250&quot;&gt;&lt;a href=&quot;https://www.quora.com/Aditya-N-Joshi&quot;&gt;Aditya N. Joshi&lt;/a&gt;'s &lt;a href=&quot;/What-is-the-intuitive-way-of-deriving-a-DP-solution-to-check-if-a-given-string-C-is-interleaving-of-2-strings-A-and-B#ans5787408&quot;&gt;answer&lt;/a&gt; to &lt;a href=&quot;/What-is-the-intuitive-way-of-deriving-a-DP-solution-to-check-if-a-given-string-C-is-interleaving-of-2-strings-A-and-B&quot; ref=&quot;canonical&quot;&gt;&lt;span class=&quot;rendered_qtext&quot;&gt;What is the intuitive way of deriving a DP solution to check if a given string C is interleaving of 2 strings A and B?&lt;/span&gt;&lt;/a&gt;&lt;/a&gt; on &lt;a href=&quot;https://www.__nousername__.main.quora.com&quot;&gt;Quora&lt;/a&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;https://www.quora.com/widgets/content&quot;&gt;&lt;/script&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/53ee78419543f6231929.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rosalind - Edit Distance Alignment</title>
+   <link href="http://localhost:4000/2016/01/31/rosalind-edit-distance-alignment/"/>
+   <updated>2016-01-31T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/31/rosalind-edit-distance-alignment</id>
+   <content type="html">&lt;p&gt;Another standard algorithm &lt;a href=&quot;http://rosalind.info/problems/edta/&quot;&gt;problem,&lt;/a&gt; except that like the &lt;a href=&quot;http://adijo.github.io/2016/01/28/rosalind-finding-a-shared-spliced-motif/&quot;&gt;longest common subsequence&lt;/a&gt; problem, we were required to reconstruct the optimal alignment. For example, for the strings &lt;code class=&quot;highlighter-rouge&quot;&gt;ADITYA&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;ADIJO,&lt;/code&gt; the edit distance is &lt;code class=&quot;highlighter-rouge&quot;&gt;3,&lt;/code&gt; and the optimal alignment is&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;ADI&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;JO&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ADITYA&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This requires the same technique as with the longest common subsequence problem of using the backpointer to reconstruct our optimal alignment from the memoized table.&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+
+&lt;script src=&quot;https://gist.github.com/adijo/124fd318d8f4204ee23d.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Leetcode - Bulb Switcher</title>
+   <link href="http://localhost:4000/2016/01/29/leetcode-bulb-switcher/"/>
+   <updated>2016-01-29T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/29/leetcode-bulb-switcher</id>
+   <content type="html">&lt;p&gt;I solved this &lt;a href=&quot;https://leetcode.com/problems/bulb-switcher/&quot;&gt;problem&lt;/a&gt; by trying to find patterns in the output for various input values.&lt;/p&gt;
+
+&lt;h3 id=&quot;analysis&quot;&gt;Analysis&lt;/h3&gt;
+&lt;p&gt;At first, I tried the naive approach, that is for each index, I found out the number of indices that would toggle this particular bulb. Depending on this parity, we can find out the final answer. This was too slow to get accepted by the judge. I thought about it for some time but couldn’t come up with anything. I decided to try to detect patterns in the output for each input value. And sure enough, a pattern emerged. With $ n $ referring to the number of bulbs, the number of bulbs on after $ n $ rounds of toggling carried out in the way described in the question were as follows.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The number of &lt;code class=&quot;highlighter-rouge&quot;&gt;1's&lt;/code&gt; here equaled &lt;code class=&quot;highlighter-rouge&quot;&gt;3,&lt;/code&gt; the number of &lt;code class=&quot;highlighter-rouge&quot;&gt;2's&lt;/code&gt; equaled 5 and so on. From here, after fiddling with the sequence, I decided to enumerate the sequence above.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;What this means is that the first three values of $n$ would have $ 1 $ bulb on, the next $ 5 $ values of $ n $ would have $ 2 $ bulbs on and so on. We have a sequence as follows, $ 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3 \cdots $ Given a particular $ n, $ we need to be able to quickly find its &lt;em&gt;index.&lt;/em&gt;  We can find out the cumulative sum of the above sequence as follows&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;24&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Thus, given a value of $ n $, if we can quickly find out its index in the above table, we can find the number of bulbs on. The sequence above can be written with the following recurrence relation.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f(0) = 3, f(n) = 2(n + 1) + 1 + f(n - 1)&lt;/script&gt;
+
+&lt;p&gt;If we &lt;a href=&quot;http://www.wolframalpha.com/input/?i=f%280%29+%3D+3%2C+f%28n%29+%3D+%282*%28n+%2B+1%29+%2B+1%29+%2B+f%28n+-+1%29&quot;&gt;solve&lt;/a&gt; this recurrence relation, we get a closed form solution for $ n, $ which is $f(n) = n^2 + 4n + 3.$ Thus, for any given value of $ n, $ we can find the positive root of this quadratic equation and after adjusting it by $ 1 $ for the indices, return that value. For example, if we need to find the number of bulbs on for $n = 10$, we have&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;n^2 + 4n + 3 = 10&lt;/script&gt;
+
+&lt;p&gt;After find out the roots using $ a = 1, b = 4, c = -7 $ in the quadratic formula, $ \dfrac{-b + \sqrt{b^2 - 4ac}}{2a}, $ we get $ n = 1.31662479036. $ We find the ceil, $ \text{ceil}(1.3166) = 2 $ and then do the off by $ 1 $ adjustment by adding $ 1, $ which gives us our final answer, $ 3. $&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/04583f051a7bbdb651e4.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rosalind - Finding a Shared Spliced Motif</title>
+   <link href="http://localhost:4000/2016/01/28/rosalind-finding-a-shared-spliced-motif/"/>
+   <updated>2016-01-28T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/28/rosalind-finding-a-shared-spliced-motif</id>
+   <content type="html">&lt;p&gt;This was another standard &lt;a href=&quot;http://rosalind.info/problems/lcsq/&quot;&gt;problem&lt;/a&gt; from an algorithms course. One difference was to actually find the &lt;a href=&quot;https://en.wikipedia.org/wiki/Longest_common_subsequence_problem&quot;&gt;longest common subsequence&lt;/a&gt; and not just its length. I had not done this exercise before so it was informative to do so. It required an extra 10 lines of code that reconstructs the optimal subsequence by taking the dynamic programming table constructed as an input. I always prefer to write my dynamic programming code in a top down fashion because all the corner cases can be taken care of easily. Unfortunately that sometimes results in stack overflows and I had to increase the memory allocated to python to make this work which can be done quite easily using the &lt;code class=&quot;highlighter-rouge&quot;&gt;sys.setrecursionlimit()&lt;/code&gt; call.&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+
+&lt;script src=&quot;https://gist.github.com/adijo/961ff510323d4a03e1af.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rosalind - Counting Disease Carriers - Hardy Weinberg Principle</title>
+   <link href="http://localhost:4000/2016/01/28/rosalind-counting-disease-carriers/"/>
+   <updated>2016-01-28T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/28/rosalind-counting-disease-carriers</id>
+   <content type="html">&lt;p&gt;To solve this &lt;a href=&quot;http://rosalind.info/problems/afrq/&quot;&gt;problem,&lt;/a&gt; we need to know about the &lt;a href=&quot;https://en.wikipedia.org/wiki/Hardy%E2%80%93Weinberg_principle&quot;&gt;Hardy Weinberg Principle.&lt;/a&gt; I will explain this in brief.&lt;/p&gt;
+
+&lt;h3 id=&quot;hardy-weinberg-principle&quot;&gt;Hardy Weinberg Principle&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Every diploid organism has two alleles in every chromosome. These alleles can be recessive or dominant. For example, consider the chromosome that
+contains the gene that determines eye colour. There are &lt;em&gt;variants&lt;/em&gt; or &lt;em&gt;alleles&lt;/em&gt; of the chromosome that is responsible for eye colour. Let us assume that the population consists of individuals with only a blue or brown colour. Let the blue &lt;em&gt;allele&lt;/em&gt; be represented by $b$ and the brown allele be represented by $B.$ Then an individual, having two alleles, can have the following genotype – $bb, BB, Bb.$&lt;/li&gt;
+  &lt;li&gt;Let the &lt;strong&gt;allele frequency of the recessive trait&lt;/strong&gt; be denoted by $p.$ Then the allele frequency for the dominant trait is $ q = 1 - q. $&lt;/li&gt;
+  &lt;li&gt;Now, we know that $ p + q = 1 $ by the laws of probability. Let us expand these terms by squaring both sides:&lt;/li&gt;
+  &lt;li&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;(p + q)^2 = 1^2 = p^2 + 2pq + q^2 = 1&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What does $p^2$ equal? It is the probability of getting a homozygous recessive individual, i.e, and individual with both recessive alleles – $bb.$ 
+Thus, $q^2$ denotes the probability of getting $BB$ and $2pq$ denotes the probability of getting $Bb.$&lt;/li&gt;
+  &lt;li&gt;This is the Hardy Weinberg Principle. Thus, starting from the allelic frequency, we can deduce the proportion of $bb, BB, Bb$ individuals in the population. This principle has a few assumptions, &lt;em&gt;taken from Wikipedia:&lt;/em&gt;
+    &lt;ul&gt;
+      &lt;li&gt;organisms are diploid&lt;/li&gt;
+      &lt;li&gt;only sexual reproduction occurs&lt;/li&gt;
+      &lt;li&gt;generations are non overlapping&lt;/li&gt;
+      &lt;li&gt;mating is random&lt;/li&gt;
+      &lt;li&gt;population size is infinitely large&lt;/li&gt;
+      &lt;li&gt;allele frequencies are equal in the sexes&lt;/li&gt;
+      &lt;li&gt;there is no migration, mutation or selection&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;analysis-and-solution&quot;&gt;Analysis and Solution&lt;/h3&gt;
+
+&lt;p&gt;In our problem, we are given the proportion of homozygous recessive organisms. In other words, we are given the proportion of $bb$ organisms. Thus, we are given $p^2.$ We need to find the probability of picking an organism with &lt;strong&gt;at least&lt;/strong&gt; one recessive allele – The organisms with genotype $bb$ and $Bb.$ We already know the proportion of $bb$ individuals. We need to find the proportion of $Bb$ individuals, and this equals $2pq$ from the notes above. It boils down to simple maths now, from $p^2,$ we get $p.$ As $ p + q = 1,$ we can find $q$. We can then find $2pq$ and then we add up $p^2$ and $2pq$ to give us our final answer, $p^2 + 2pq.$ This is done for every value in our array.&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/469c23af64ac64a48d82.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rosalind - Longest Increasing Subsequence</title>
+   <link href="http://localhost:4000/2016/01/27/rosalind-longest-increasing-subsequence/"/>
+   <updated>2016-01-27T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/27/rosalind-longest-increasing-subsequence</id>
+   <content type="html">&lt;p&gt;This was a rather standard dynamic programming &lt;a href=&quot;http://rosalind.info/problems/lgis/&quot;&gt;problem&lt;/a&gt; of finding the longest increasing subsequence which is taught in most algorithm courses. One slight addition here is that it asks for both the longest increasing and longest decreasing subsequences. Although being a standard problem, one interesting thing that I did here &lt;strong&gt;to prevent code duplication,&lt;/strong&gt; was to abstract the process of deciding the order of the elements. What this means is that – The algorithm to find the longest increasing and longest decreasing subsequences is identical, the only place where they differ is in deciding if element &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; should be greater or lesser than &lt;code class=&quot;highlighter-rouge&quot;&gt;y.&lt;/code&gt; This is abstracted out into a higher order function in my code. This could be avoided by simply running the same longest increasing subsequence algorithm on the reverse sequence and then returning the reversal of the result although this seemed more elegant.&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/74cc4750f98601b17856.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Project Euler - Consecutive Prime Sum</title>
+   <link href="http://localhost:4000/2016/01/27/project-euler-consecutive-prime-sum/"/>
+   <updated>2016-01-27T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/27/project-euler-consecutive-prime-sum</id>
+   <content type="html">&lt;p&gt;This &lt;a href=&quot;https://projecteuler.net/problem=50&quot;&gt;problem&lt;/a&gt; required us to get one key insight. We carry out a brute force search across all possible sub arrays of varying lengths with one key speedup – &lt;strong&gt;not calculating sum of ranges every time.&lt;/strong&gt; Instead, we maintain a &lt;strong&gt;prefix sum array&lt;/strong&gt; which is a cumulative sum array. As a concerete example, for the array &lt;code class=&quot;highlighter-rouge&quot;&gt;[1, 2, 3],&lt;/code&gt; the prefix array is &lt;code class=&quot;highlighter-rouge&quot;&gt;[1, 3, 6].&lt;/code&gt; We can now calculate the sum of any range in this array in constant time. The Python version of this code took way too long, so I did it in Java and it took about &lt;code class=&quot;highlighter-rouge&quot;&gt;28&lt;/code&gt; seconds which is not so good, but still under the project euler guideline of 1 minute. I will be able to speed it up somewhat by doing things a little differently, but I am quite sleepy and unwell right now.&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/8438fcd13a5514035dff.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rosalind - Finding a Spliced Motif</title>
+   <link href="http://localhost:4000/2016/01/26/rosalind-finding-a-spliced-motif/"/>
+   <updated>2016-01-26T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/26/rosalind-finding-a-spliced-motif</id>
+   <content type="html">&lt;p&gt;This &lt;a href=&quot;http://rosalind.info/problems/sseq/&quot;&gt;problem&lt;/a&gt; was fun to solve. Briefly, for a string &lt;code class=&quot;highlighter-rouge&quot;&gt;s,&lt;/code&gt; we needed to find the indices where it occurs as a subsequence in string &lt;code class=&quot;highlighter-rouge&quot;&gt;t.&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;analysis&quot;&gt;Analysis&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;This problem could be done by brute force, first finding the positions were characters in &lt;code class=&quot;highlighter-rouge&quot;&gt;s&lt;/code&gt; occur. Then for each of these index array, try all possible combinations. For example, if string &lt;code class=&quot;highlighter-rouge&quot;&gt;t = ACGTAA,&lt;/code&gt; the index array would be&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;We then find all possible candidates from these character arrays in the order the characters occur in &lt;code class=&quot;highlighter-rouge&quot;&gt;s.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This is quite inefficient.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We could instead use &lt;strong&gt;binary search&lt;/strong&gt; since the index arrays are sorted. For every character in &lt;code class=&quot;highlighter-rouge&quot;&gt;s,&lt;/code&gt; we find the smallest index in a particular index array that is after a particular given index. This is clearer with an example.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If &lt;code class=&quot;highlighter-rouge&quot;&gt;s = ACGTACGTGACG&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;t =  GTA,&lt;/code&gt; the index arrays for string &lt;code class=&quot;highlighter-rouge&quot;&gt;t&lt;/code&gt; are&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;s&quot;&gt;'A'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; 
+&lt;span class=&quot;s&quot;&gt;'C'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; 
+&lt;span class=&quot;s&quot;&gt;'T'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; 
+&lt;span class=&quot;s&quot;&gt;'G'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now we iterate through the characters of &lt;code class=&quot;highlighter-rouge&quot;&gt;s&lt;/code&gt; one by one, considering the respective index array for the character encountered. For the first character in &lt;code class=&quot;highlighter-rouge&quot;&gt;t&lt;/code&gt;, that is &lt;code class=&quot;highlighter-rouge&quot;&gt;G&lt;/code&gt;, the corresponding index array is &lt;code class=&quot;highlighter-rouge&quot;&gt;[2, 6, 8, 11].&lt;/code&gt; We find the &lt;em&gt;smallest&lt;/em&gt; index here greater than &lt;code class=&quot;highlighter-rouge&quot;&gt;-1,&lt;/code&gt; which is the first initialization. Let this index be equal to &lt;code class=&quot;highlighter-rouge&quot;&gt;i.&lt;/code&gt; Now for character &lt;code class=&quot;highlighter-rouge&quot;&gt;T,&lt;/code&gt; the index array is &lt;code class=&quot;highlighter-rouge&quot;&gt;[3, 7].&lt;/code&gt; Here we find the smallest index that is greater than &lt;code class=&quot;highlighter-rouge&quot;&gt;i.&lt;/code&gt; We then update &lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt; to be this new value and continue in our search. This is how the answer can be calculated efficiently.&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/97a049b22ce3eda8aa11.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Project Euler - Passcode Derivation</title>
+   <link href="http://localhost:4000/2016/01/26/project-euler-passcode-derivation/"/>
+   <updated>2016-01-26T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/26/project-euler-passcode-derivation</id>
+   <content type="html">&lt;p&gt;This &lt;a href=&quot;https://projecteuler.net/problem=79&quot;&gt;problem&lt;/a&gt; required us to calculate the &lt;strong&gt;longest path in a DAG.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;analysis&quot;&gt;Analysis&lt;/h3&gt;
+
+&lt;p&gt;We build a graph out of the given dataset in the following way - If a certain passcode success was &lt;code class=&quot;highlighter-rouge&quot;&gt;321,&lt;/code&gt; we create three nodes, &lt;code class=&quot;highlighter-rouge&quot;&gt;3, 2&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;1.&lt;/code&gt; We add edges from &lt;code class=&quot;highlighter-rouge&quot;&gt;3&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;2&lt;/code&gt; and from &lt;code class=&quot;highlighter-rouge&quot;&gt;2&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;1.&lt;/code&gt; After building the graph, we find the longest path in this graph. This enables us to visit all the nodes and thus give us a valid passcode.&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/34e3cc3ac5d8252ec2ee.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Haskell Notes</title>
+   <link href="http://localhost:4000/2016/01/24/haskell-notes/"/>
+   <updated>2016-01-24T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/24/haskell-notes</id>
+   <content type="html">&lt;h2 id=&quot;notes-for-cis-194&quot;&gt;Notes for &lt;a href=&quot;http://www.seas.upenn.edu/~cis194/&quot;&gt;CIS 194&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p class=&quot;message&quot;&gt;
+  The following notes are snippets taken from the &lt;a href=&quot;http://www.seas.upenn.edu/~cis194/&quot;&gt; Introduction to Haskell&lt;/a&gt; class offered by UPenn.
+&lt;/p&gt;
+
+&lt;h3 id=&quot;parametric-polymorphism&quot;&gt;Parametric Polymorphism&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The &lt;strong&gt;caller gets to pick the types.&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;All Haskell functions must be parametric in their type parameters; the functions must not care or make decisions based on the choices for these parameters. A function can’t do one thing when a is &lt;code class=&quot;highlighter-rouge&quot;&gt;Int&lt;/code&gt; and a different thing when a is &lt;code class=&quot;highlighter-rouge&quot;&gt;Bool.&lt;/code&gt; This property is called &lt;em&gt;parametricity.&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;There are many deep and profound consequences of parametricity. One consequence is something called type erasure. Because a running Haskell program can never make decisions based on type information, all the type information can be dropped during compilation. Despite how important types are when writing Haskell code, they are completely irrelevant when running Haskell code. This property gives Haskell a huge speed boost when compared to other languages, such as Python, that need to keep types around at runtime.&lt;/li&gt;
+  &lt;li&gt;Total and partial functions - Functions that crash on some inputs or recurse infinitely are called partial functions. Functions that are defined for all input types are total functions. Partial functions should be avoided.&lt;/li&gt;
+  &lt;li&gt;Common recursion patterns - &lt;code class=&quot;highlighter-rouge&quot;&gt;map, filter, fold.&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rosalind - Expected Number of Restriction Sites</title>
+   <link href="http://localhost:4000/2016/01/22/rosalind-expected-number-of-restriction-sites/"/>
+   <updated>2016-01-22T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/22/rosalind-expected-number-of-restriction-sites</id>
+   <content type="html">&lt;p&gt;Another &lt;a href=&quot;http://rosalind.info/problems/eval/&quot;&gt;problem&lt;/a&gt; based purely on probability and expected values.&lt;/p&gt;
+
+&lt;h3 id=&quot;analysis&quot;&gt;Analysis&lt;/h3&gt;
+&lt;p&gt;The question asks us to find the expected number of times we see a string $s$ as a substring of a string of length $n$ constructed with a given GC-content.&lt;/p&gt;
+
+&lt;p&gt;We assign a indicator random variable $I_i$ equal to $1$ if we see the string $s$ beginning at the $i^{\text{th}}$ position. Thus, we have to find&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;E[I_0 + I_1 + I_2 ... + I_{n - 1}] = \sum_{i = 0}^{n - 1} E[I_i]&lt;/script&gt;
+
+&lt;p&gt;This is due to &lt;a href=&quot;https://brilliant.org/wiki/linearity-of-expectation/&quot;&gt;Linearity of Expectation.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The calculations of all $E[I_i]$ values are identical. Once we find the probabilities of getting symbols $G, C, T, A $ from the GC-content, we simply multiply them according the the symbols observed in $s.$&lt;/p&gt;
+
+&lt;p&gt;For example, if the GC-content is $0.25$, $P(G) = 0.125, P(C) = 0.125, P(A) = 0.375, P(T) = 0.375.$ Then string &lt;code class=&quot;highlighter-rouge&quot;&gt;AG&lt;/code&gt; is constructed with probability $ 0.125 \cdot 0.375.$ Refer to &lt;a href=&quot;http://adijo.github.io/2016/01/21/rosalind-matching-random-motifs/&quot;&gt;this&lt;/a&gt; post to calculate the probabilities above.&lt;/p&gt;
+
+&lt;p&gt;Once we have the probability of randomly constructing string $ s $, the expected value of $ I_i$ is simply the expected value of a &lt;a href=&quot;https://en.wikipedia.org/wiki/Bernoulli_trial&quot;&gt;Bernoulli trial,&lt;/a&gt; i.e., there is a certain probability of success and failure. In our case, the success occurs if we randomly construct string $s.$ Let this expected value equal $x.$ Now, since the calculation of all $E[I_i]$ is identical, our answer is $ x \cdot (n - 1).$&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/c4d3e475ee0a39797533.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Leetcode - Ugly Numbers II</title>
+   <link href="http://localhost:4000/2016/01/22/leetcode-ugly-number-ii/"/>
+   <updated>2016-01-22T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/22/leetcode-ugly-number-ii</id>
+   <content type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/ugly-number-ii/&quot;&gt;problem&lt;/a&gt; seemed like it would be related to number theory but it was actually an application of two very important data structures – &lt;strong&gt;priority queues&lt;/strong&gt; and &lt;strong&gt;sets&lt;/strong&gt; (&lt;em&gt;HashSet&lt;/em&gt; or &lt;em&gt;TreeSet&lt;/em&gt; in Java).&lt;/p&gt;
+
+&lt;h3 id=&quot;analysis-and-algorithm&quot;&gt;Analysis and Algorithm&lt;/h3&gt;
+
+&lt;p&gt;We had to find the &lt;code class=&quot;highlighter-rouge&quot;&gt;nth&lt;/code&gt; &lt;em&gt;ugly&lt;/em&gt; number. Ugly numbers are defined as numbers that have only &lt;code class=&quot;highlighter-rouge&quot;&gt;2, 3, 5&lt;/code&gt; as prime factors. Hence, all the ugly numbers would be of the form &lt;code class=&quot;highlighter-rouge&quot;&gt;2^i 3^j 5^k&lt;/code&gt; for some exponents &lt;code class=&quot;highlighter-rouge&quot;&gt;i, j, k.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To solve this problem, we simply enumerate all the ugly numbers till we reach the &lt;code class=&quot;highlighter-rouge&quot;&gt;nth&lt;/code&gt; one. This can be done efficiently using a priority queue and a set. In the beginning, we start off the process by adding &lt;code class=&quot;highlighter-rouge&quot;&gt;2^0 3^0 5^0&lt;/code&gt; to the priority queue with the priority equal to the number (in this case, &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt;). The item associated with the priority is the &lt;em&gt;exponent signature,&lt;/em&gt; which in this case is &lt;code class=&quot;highlighter-rouge&quot;&gt;(0, 0, 0).&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;In each iteration, we pop the element with the lowest priority. Let &lt;code class=&quot;highlighter-rouge&quot;&gt;(a, b, c)&lt;/code&gt; be the &lt;em&gt;exponent signature&lt;/em&gt; of the element. We then enumerate the next elements which have the following &lt;em&gt;exponent signature:&lt;/em&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;(a + 1, b, c), (a, b + 1, c), (a, b, c + 1).&lt;/code&gt; If these are &lt;strong&gt;not&lt;/strong&gt; already added to the priority queue (this is where the &lt;strong&gt;set&lt;/strong&gt; comes into the picture), we add them with priority equal to &lt;code class=&quot;highlighter-rouge&quot;&gt;2^a 3^b 5^c.&lt;/code&gt; When we pop the &lt;code class=&quot;highlighter-rouge&quot;&gt;nth&lt;/code&gt; number, we know that this is the &lt;code class=&quot;highlighter-rouge&quot;&gt;nth&lt;/code&gt; ugly number and we return it.&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/4bdaf614dc4c3acfb7f0.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rosalind - Matching Random Motifs</title>
+   <link href="http://localhost:4000/2016/01/21/rosalind-matching-random-motifs/"/>
+   <updated>2016-01-21T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/21/rosalind-matching-random-motifs</id>
+   <content type="html">&lt;p&gt;This &lt;a href=&quot;http://rosalind.info/problems/rstr/&quot;&gt;problem&lt;/a&gt; was purely based on probability.&lt;/p&gt;
+
+&lt;h3 id=&quot;analysis&quot;&gt;Analysis&lt;/h3&gt;
+&lt;p&gt;The GC-content of the protein is given to us, call it $ \text{GC.} $ We can find the probability of &lt;code class=&quot;highlighter-rouge&quot;&gt;G&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;C&lt;/code&gt; characters as $ \dfrac{\text{GC}}{2}. $ For &lt;code class=&quot;highlighter-rouge&quot;&gt;A&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;T&lt;/code&gt;, this value is $ \dfrac{1 - \text{GC}}{2}. $&lt;/p&gt;
+
+&lt;p&gt;Thus, let $P(G) = g, P(C) = c, p(A) = a, P(T) = t.$&lt;/p&gt;
+
+&lt;p&gt;The probability of getting a string equal to a given one is equal to the multiplication of the probabilities of all the symbols in the string. For a string &lt;code class=&quot;highlighter-rouge&quot;&gt;ATGCT&lt;/code&gt;, the probability of randomly constructing that string - with the probabilies given as above - is $a \cdot t \cdot g \cdot c \cdot t.$&lt;/p&gt;
+
+&lt;p&gt;In our problem there are $ N $ trials in which random strings are constructed. We have to find the probability of &lt;strong&gt;at least&lt;/strong&gt; one of them being equal to our string $s.$&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P(\text{at least one string equals s}) = 1.0 - P(\text{no string equals s})&lt;/script&gt;
+
+&lt;p&gt;For a given string $s$, we first find the probability of &lt;strong&gt;not&lt;/strong&gt; obtaining it if it is randomly constructed using the given probabilities. Let this be $p.$ Thus, the probability that we do not get $s$ even once in $N$ trials is $p^N$. Hence, the probability of getting it &lt;strong&gt;at least once&lt;/strong&gt; is $ 1.0 - p^N. $&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/1ec0e9951bd1d274f4d1.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rosalind - Introduction to Pattern Matching - Implementing a Trie</title>
+   <link href="http://localhost:4000/2016/01/21/rosalind-introduction-to-pattern-matching/"/>
+   <updated>2016-01-21T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/21/rosalind-introduction-to-pattern-matching</id>
+   <content type="html">&lt;p&gt;The &lt;a href=&quot;http://rosalind.info/problems/trie/&quot;&gt;problem&lt;/a&gt; basically asks us to implement a &lt;a href=&quot;https://en.wikipedia.org/wiki/Trie&quot;&gt;trie.&lt;/a&gt; I did this in Python.&lt;/p&gt;
+
+&lt;h3 id=&quot;representation&quot;&gt;Representation&lt;/h3&gt;
+
+&lt;p&gt;Every node of the trie is represented as a dictionary. The keys associated with the dictionary are alphabets of the inserted word at that depth. The value associated with the respective key is a tuple of a dictionary (which is just the node associated with that alphabet; the next node further down the trie) and a boolean (except in the case of &lt;code class=&quot;highlighter-rouge&quot;&gt;id&lt;/code&gt;, which is just a single value). The dictionary also has a special &lt;code class=&quot;highlighter-rouge&quot;&gt;id&lt;/code&gt; character which is just the identifier associated with the particular node, which is required for the current question.&lt;/p&gt;
+
+&lt;p&gt;As a practical example, if we insert the following strings, &lt;code class=&quot;highlighter-rouge&quot;&gt;ATAGA, ATC, GAT&lt;/code&gt;, our trie will look like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'A'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'T'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'A'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'G'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'A'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'C'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'G'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'A'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'T'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/86d0f6a7b85cf2dc4d80.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Leetcode - Longest Increasing Path In A Matrix</title>
+   <link href="http://localhost:4000/2016/01/20/leetcode-longest-increasing-path-matrix/"/>
+   <updated>2016-01-20T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/20/leetcode-longest-increasing-path-matrix</id>
+   <content type="html">&lt;h3 id=&quot;analysis&quot;&gt;Analysis&lt;/h3&gt;
+
+&lt;p&gt;In this &lt;a href=&quot;https://leetcode.com/problems/longest-increasing-path-in-a-matrix/&quot;&gt;problem&lt;/a&gt;, there is one key insight – &lt;strong&gt;There will be no cycles.&lt;/strong&gt; If we are a node &lt;code class=&quot;highlighter-rouge&quot;&gt;x,&lt;/code&gt; and we have got there from some node &lt;code class=&quot;highlighter-rouge&quot;&gt;y,&lt;/code&gt; we will never reach &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; again from &lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt; since the only valid moves from a node are to its neighbours that have a higher value than itself. Since we have travelled from &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;y,&lt;/code&gt; by definition, &lt;code class=&quot;highlighter-rouge&quot;&gt;val(y) &amp;gt; val(x).&lt;/code&gt; Since for every incremental step from &lt;code class=&quot;highlighter-rouge&quot;&gt;y,&lt;/code&gt; we only go to values higher than &lt;code class=&quot;highlighter-rouge&quot;&gt;y,&lt;/code&gt; we will never go back to &lt;code class=&quot;highlighter-rouge&quot;&gt;x.&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h3&gt;
+
+&lt;p&gt;We define a dynamic programming state &lt;code class=&quot;highlighter-rouge&quot;&gt;dp[i][j]&lt;/code&gt; as the longest path originating at point &lt;code class=&quot;highlighter-rouge&quot;&gt;(i, j).&lt;/code&gt; We then recursively find this value for all &lt;code class=&quot;highlighter-rouge&quot;&gt;(i, j)&lt;/code&gt; by using the property that we can potentially move in four directions if the value at the neighbour is greater than the current value. Note that if we have already found out the value for a particular &lt;code class=&quot;highlighter-rouge&quot;&gt;(i, j),&lt;/code&gt; we just return this value from the cache.&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+
+&lt;script src=&quot;https://gist.github.com/adijo/7dd9eb910a36e48eb153.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Leetcode - Perfect Squares</title>
+   <link href="http://localhost:4000/2016/01/19/leetcode-perfect-squares/"/>
+   <updated>2016-01-19T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/19/leetcode-perfect-squares</id>
+   <content type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/perfect-squares/&quot;&gt;problem&lt;/a&gt; required a couple of insights. I initially coded the solution in Python but could not get it accepted even though the time complexity seemed reasonable to me. I had to re-do it in Java and that worked. That was actually a good thing since I finally wrote some Java code after several weeks.&lt;/p&gt;
+
+&lt;h3 id=&quot;analysis-and-algorithm&quot;&gt;Analysis and Algorithm&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Since we have to find the minimum number of perfect squares to make up a number, we would need to enumerate the perfect squares. One insight is that we don’t need to 
+enumerate more than &lt;code class=&quot;highlighter-rouge&quot;&gt;sqrt(n)&lt;/code&gt; numbers. All the numbers after &lt;code class=&quot;highlighter-rouge&quot;&gt;sqrt(n)&lt;/code&gt; will have a square higher than our given number.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The second part is relatively simple, we use the signature dynamic programming technique. Looking at the list of perfect squares from the right end, we could either use
+this particular number to reduce our problem to &lt;code class=&quot;highlighter-rouge&quot;&gt;n - candidates[index]&lt;/code&gt; or we could move on to the second last index. These are the only two cases. We consider both and thus formulate our recurrence relation as follows. We define &lt;code class=&quot;highlighter-rouge&quot;&gt;dp[n][index]&lt;/code&gt; to be the minimum number of perfect squares required to get &lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt; if only numbers from &lt;code class=&quot;highlighter-rouge&quot;&gt;[0 ... index]&lt;/code&gt; are allowed to be taken. Note that &lt;code class=&quot;highlighter-rouge&quot;&gt;candidates&lt;/code&gt; is the list of perfect squares that we found out from the first step.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;    &lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;candidates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;candidates&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+   &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;As a concrete example, consider the case of number &lt;code class=&quot;highlighter-rouge&quot;&gt;13.&lt;/code&gt; The candidates for this case are &lt;code class=&quot;highlighter-rouge&quot;&gt;[1, 4, 9].&lt;/code&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;notes&quot;&gt;Notes&lt;/h3&gt;
+
+&lt;p&gt;I spent around 10 minutes trying to debug my solution in Java. While writing a top down recursive program, I often handle the boundary cases after making the function call. In this particular case I was returning &lt;code class=&quot;highlighter-rouge&quot;&gt;Integer.MAX_INTEGER&lt;/code&gt; if I came across an invalid argument. After this was incremented by 1, as it is in our algorithm, it caused an overflow. Having used Python for the past few weeks the possibility of overflow didn’t occur to me for 10 minutes. Anyway, I’ll keep that in mind for the future.&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/adijo/7679d78b4b3808521469.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Project Euler - Square Digit Chains</title>
+   <link href="http://localhost:4000/2016/01/18/project-euler-square-digit-chains/"/>
+   <updated>2016-01-18T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/18/project-euler-square-digit-chains</id>
+   <content type="html">&lt;p&gt;This &lt;a href=&quot;https://projecteuler.net/problem=92&quot;&gt;problem&lt;/a&gt; had a brute force solution, with an important speedup – &lt;strong&gt;memoization.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;solution&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;We define a boolean function &lt;code class=&quot;highlighter-rouge&quot;&gt;find&lt;/code&gt; that returns true if the given input ends up at 89. Every time we find a result, we store it in a cache so that we need not recompute it. Our cache builds up but our program significantly speeds up.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/adijo/a920db47533d4fd2a6fe.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Project Euler - Dice Game</title>
+   <link href="http://localhost:4000/2016/01/18/project-euler-dice-game/"/>
+   <updated>2016-01-18T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/18/project-euler-dice-game</id>
+   <content type="html">&lt;h3 id=&quot;analysis&quot;&gt;Analysis&lt;/h3&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://projecteuler.net/problem=205&quot;&gt;problem&lt;/a&gt; seemed straightforward – we need to enumerate all the outcomes for Pete and Colin and find out all the 2-tuples for each value in Pete and Colin’s possible outcomes. Since each of these 2-tuples are equally likely, we count the number of the number of times Pete has a value higher than Colin. This value divided by the total number of 2-tuples will give us the answer.&lt;/p&gt;
+
+&lt;p&gt;A recursive method does a fine job of enumerating outcomes of the sum on the &lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt; faced dice after rolling it &lt;code class=&quot;highlighter-rouge&quot;&gt;t&lt;/code&gt; times.&lt;/p&gt;
+
+&lt;h3 id=&quot;brute-force&quot;&gt;Brute Force&lt;/h3&gt;
+
+&lt;p&gt;The brute force method is the following&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;pete&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;possible&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sums&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;faced&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dice&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;after&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rolling&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;times&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;colin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;possible&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sums&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;faced&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dice&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;after&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rolling&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;times&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;acc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;colin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;acc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;acc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;colin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This naive approach is quite expensive, it has &lt;code class=&quot;highlighter-rouge&quot;&gt;12230590464&lt;/code&gt; iterations and takes a lot of time.&lt;/p&gt;
+
+&lt;h3 id=&quot;binary-search&quot;&gt;Binary Search&lt;/h3&gt;
+
+&lt;p&gt;We could sort the arrays and binary search for the smallest value in Pete’s array such that it is greater than a given value (taken from Colin’s array). We do this for every value in Colin’s array. Once we find the smallest greater number, we can easily find the number of numbers greater than the given value (since the array is sorted). This approach saves us a lot of time and has only about &lt;code class=&quot;highlighter-rouge&quot;&gt;839808&lt;/code&gt; iterations.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/adijo/e3f848c610dce18dbf39.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Leetcode - Palindrome Partitioning II</title>
+   <link href="http://localhost:4000/2016/01/18/leetcode-palindrome-partitionaning-ii/"/>
+   <updated>2016-01-18T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/18/leetcode-palindrome-partitionaning-ii</id>
+   <content type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/palindrome-partitioning-ii/&quot;&gt;problem&lt;/a&gt; was a two stage dynamic programming problem.&lt;/p&gt;
+
+&lt;h3 id=&quot;solution&quot;&gt;Solution&lt;/h3&gt;
+&lt;p&gt;For the input string, consider the suffixes in increasing order of length. If a particular suffix is a palindrome, our problem reduces to finding the minimum number of cuts required for the corresponding prefix plus one.&lt;/p&gt;
+
+&lt;p&gt;For example, for the string &lt;code class=&quot;highlighter-rouge&quot;&gt;ababaaa&lt;/code&gt;,
+Since &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt; is a palindrome, we get &lt;code class=&quot;highlighter-rouge&quot;&gt;1 + f(&quot;ababaa&quot;)&lt;/code&gt;
+Since &lt;code class=&quot;highlighter-rouge&quot;&gt;aa&lt;/code&gt; is a palindrome, we get &lt;code class=&quot;highlighter-rouge&quot;&gt;1 + f(&quot;ababa&quot;)&lt;/code&gt;
+Since &lt;code class=&quot;highlighter-rouge&quot;&gt;aaa&lt;/code&gt; is a palindrome, we get &lt;code class=&quot;highlighter-rouge&quot;&gt;1 + f(&quot;abab&quot;)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This goes on and we find the minimum of all these values.&lt;/p&gt;
+
+&lt;p&gt;Now all we need to do is to have a quick way in which to find out if a substring of &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;j&lt;/code&gt; inclusive is a palindrome. This table can be built by the following recurrence.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dp[i][j] = true if s[i] == s[j] and dp[i + 1][j - 1]&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+
+&lt;script src=&quot;https://gist.github.com/adijo/4cd7cce0873bd99c48e1.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rosalind - Catalan Numbers and RNA Secondary Structures</title>
+   <link href="http://localhost:4000/2016/01/13/rosalind-catalan-numbers-and-rna-secondary-structures/"/>
+   <updated>2016-01-13T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/13/rosalind-catalan-numbers-and-rna-secondary-structures</id>
+   <content type="html">&lt;p&gt;This &lt;a href=&quot;http://rosalind.info/problems/cat/&quot;&gt;problem&lt;/a&gt; took a bit of time. More than I’d have liked, anyway. I had worked out the problem correctly, although I had a bug related to where I placed the &lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt; conditions which caused it to malfunction. Anyway, here’s how I solved it:&lt;/p&gt;
+
+&lt;h3 id=&quot;initial-thoughts&quot;&gt;Initial Thoughts&lt;/h3&gt;
+
+&lt;p&gt;In a given RNA strand, let the starting index be &lt;code class=&quot;highlighter-rouge&quot;&gt;lo&lt;/code&gt; and the last index be &lt;code class=&quot;highlighter-rouge&quot;&gt;hi.&lt;/code&gt; Let us call our function &lt;code class=&quot;highlighter-rouge&quot;&gt;f(lo, hi).&lt;/code&gt; From &lt;code class=&quot;highlighter-rouge&quot;&gt;lo&lt;/code&gt;, consider all the places where we could have a matching. This depends on the nucleotide, &lt;code class=&quot;highlighter-rouge&quot;&gt;A&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;U&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;C&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;G&lt;/code&gt; and the reverse. So start iterating from &lt;code class=&quot;highlighter-rouge&quot;&gt;lo + 1&lt;/code&gt; till &lt;code class=&quot;highlighter-rouge&quot;&gt;hi&lt;/code&gt;, and for every valid matching, say at position &lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt;, recursively calculate &lt;code class=&quot;highlighter-rouge&quot;&gt;f(lo + 1, i - 1)&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;f(i + 1, hi).&lt;/code&gt; Then the total matchings are just &lt;code class=&quot;highlighter-rouge&quot;&gt;f(lo + 1, i - 1) * f(i + 1, hi).&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To make the algorithm efficient, every time we calculate a value for a given &lt;code class=&quot;highlighter-rouge&quot;&gt;lo&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;hi,&lt;/code&gt; we cache it in a dictionary. These values can then be recovered in constant time for further use.&lt;/p&gt;
+
+&lt;h3 id=&quot;pseudocode&quot;&gt;Pseudocode&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;accumulator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;valid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;accumulator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;accumulator&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;We have to take care of the various edge cases. You can see how I’ve done it in my code below:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/adijo/59f3c814cbc17db2506d.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Project Euler - Under the Rainbow</title>
+   <link href="http://localhost:4000/2016/01/13/project-euler-under-the-rainbow/"/>
+   <updated>2016-01-13T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/13/project-euler-under-the-rainbow</id>
+   <content type="html">&lt;p&gt;No code required for &lt;a href=&quot;https://projecteuler.net/problem=493&quot;&gt;this&lt;/a&gt; one. I really enjoyed solving it though.&lt;/p&gt;
+
+&lt;h3 id=&quot;linearity-of-expectation---the-holy-grail&quot;&gt;Linearity of Expectation - The Holy Grail&lt;/h3&gt;
+
+&lt;p&gt;Many problems can be simplified by the somewhat suprising fact that&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;E[X_1 + X_2 + X_3] = E[X_1] + E[X_2] + E[X_3]&lt;/script&gt;
+
+&lt;p&gt;This is called the &lt;a href=&quot;https://brilliant.org/wiki/linearity-of-expectation/&quot;&gt;Linearity of Expectation&lt;/a&gt; and it fascinates me everytime.&lt;/p&gt;
+
+&lt;h3 id=&quot;initial-thoughts&quot;&gt;Initial thoughts&lt;/h3&gt;
+
+&lt;p&gt;According to my intuition, this problem was an application of the property of linearity of expectation. The question was – what factor should I attach the indicator random variable to?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;Could it be $1$ if we see a distinct colour on trial $i?$&lt;/em&gt; No, that doesn’t make sense.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Is it like the Coupon Collector’s Problem?&lt;/em&gt; Nope, that wouldn’t work.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Since there are a limited number of colours, we could assign $1$ if we saw that particular colour and $0$ otherwise. This could be extended to find the expected value of distinct colours.&lt;/em&gt; &lt;strong&gt;Yes!&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;solution&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;Let $ I_0 $ be the random variable that equals $ 1 $ if we see the $ 0^{\text{th}} $ colour &lt;strong&gt;at least&lt;/strong&gt; once in $ 20 $ trials and $ 0 $ otherwise.&lt;/p&gt;
+
+&lt;p&gt;The expected value of this can be described by the &lt;a href=&quot;https://en.wikipedia.org/wiki/Hypergeometric_distribution&quot;&gt;Hypergeometric distribution.&lt;/a&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;E[I_0] = 1 \cdot P(\text{colour is seen at least once}) + 0 \cdot P(\text{doesn't matter})&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;E[I_0] = 1 \cdot (1 - P(\text{colour is never seen}))&lt;/script&gt;
+
+&lt;p&gt;The probability that the colour is never seen can be simplified using the formula for finding $ k $ successes in $ n $ draws, &lt;em&gt;without replacement&lt;/em&gt;, from a finite population size $ N $ that contains exactly $ K $ successes. To fit our problem, let us define success as seeing one of the other colours and not colour $ 0. $ Thus, we get $ N = 70, K = 60, n = 20, k = 20 $. According to the formula, the answer is given by 
+&lt;script type=&quot;math/tex&quot;&gt;\dfrac{\dbinom{K}{k} \dbinom{N - K}{n - k}}{\dbinom{N}{n}}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Substituting our numbers, we get&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\dfrac{\dbinom{60}{20} \dbinom{70 - 60}{0}}{\dbinom{70}{20}} = 0.02589402828&lt;/script&gt;
+
+&lt;p&gt;But remember, this is the probability that we never see our colour. The probability of seeing it &lt;strong&gt;at least&lt;/strong&gt; once is $ 1 - 0.02589402828 = 0.97410597171.$&lt;/p&gt;
+
+&lt;p&gt;Thus, $E[I_0] = 0.97410597171 $.&lt;/p&gt;
+
+&lt;p&gt;The same is true for $E[I_1], E[I_2] … E[I_6] $.&lt;/p&gt;
+
+&lt;p&gt;What we need is $E[I_0 + I_1 + … + E[I_6]] $ which equals $ E[I_0] + E[I_1] + … E[I_6] $ due to linearity of expectation as discussed earlier.&lt;/p&gt;
+
+&lt;p&gt;This equals $ 0.97410597171 * 7 = \underline{6.818741802.}$&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rosalind - Independent Alleles</title>
+   <link href="http://localhost:4000/2016/01/12/rosalind-independent-alleles/"/>
+   <updated>2016-01-12T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/12/rosalind-independent-alleles</id>
+   <content type="html">&lt;p&gt;This &lt;a href=&quot;http://rosalind.info/problems/lia/&quot;&gt;problem&lt;/a&gt; involved more probability and less code. I really enjoy solving problems on probability and so this was a lot of fun.&lt;/p&gt;
+
+&lt;h3 id=&quot;initial-thoughts&quot;&gt;Initial thoughts&lt;/h3&gt;
+
+&lt;p&gt;I thought this would take &lt;em&gt;a lot&lt;/em&gt; of effort because there would be an exponential number of possibilities. For instance, an organism &lt;code class=&quot;highlighter-rouge&quot;&gt;AaBb&lt;/code&gt; code mate with &lt;code class=&quot;highlighter-rouge&quot;&gt;AABB&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;Abab.&lt;/code&gt; There are way to many possibilities and it is easy to lose track.&lt;/p&gt;
+
+&lt;h3 id=&quot;insight&quot;&gt;Insight&lt;/h3&gt;
+
+&lt;p&gt;The key insight is that for an organism with &lt;em&gt;any&lt;/em&gt; genotype, &lt;code class=&quot;highlighter-rouge&quot;&gt;AaBb&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;AABB&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;aBaB&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;aaBB&lt;/code&gt; and so on, the probability of producing an offspring of genotype &lt;code class=&quot;highlighter-rouge&quot;&gt;AaBb&lt;/code&gt; &lt;strong&gt;after&lt;/strong&gt; mating with a &lt;code class=&quot;highlighter-rouge&quot;&gt;AaBb&lt;/code&gt; organism is exactly $0.25.$ Just work out all the possibilites and find that this is indeed true.&lt;/p&gt;
+
+&lt;h3 id=&quot;formulating-a-structured-solution&quot;&gt;Formulating a structured solution&lt;/h3&gt;
+
+&lt;p&gt;We can thus view the birth of a &lt;code class=&quot;highlighter-rouge&quot;&gt;AaBb&lt;/code&gt; offspring as a &lt;em&gt;success&lt;/em&gt; and the birth of any other genotype a so called &lt;em&gt;failure.&lt;/em&gt; At the $k^{\text{th}}$ generation, there are $2^{k}$ organisms. For each of them, the probability that they are of the desired genotype &lt;code class=&quot;highlighter-rouge&quot;&gt;AaBb&lt;/code&gt; is $0.25.$ Thus, for $ 2^{k} $ individuals, this basically boils down to finding the probability of $ K $ successes in $ N $ trials. This is the &lt;a href=&quot;https://en.wikipedia.org/wiki/Binomial_distribution&quot;&gt;Binomial Distribution.&lt;/a&gt; Don’t get confused with the notation, here $N$ refers to the total number of trials, which is equal to the total number of organisms at the $k^{\text{th}}$ level, which is equal to $N = 2^{k}.$ The question asks for us to find the probability that there are &lt;strong&gt;at least&lt;/strong&gt; $n$ organisms with the desired genotype. Thus, we need to find this probability for all $ n $ in the range $[n, n + 1, … , 2^{k}]$&lt;/p&gt;
+
+&lt;p&gt;In other words, in a population of $2^{k}$ individuals, first we find the probability that &lt;strong&gt;exactly&lt;/strong&gt; $ n $ are of the desired genotype &lt;code class=&quot;highlighter-rouge&quot;&gt;AaBb&lt;/code&gt;, then we find the probability that &lt;strong&gt;exactly&lt;/strong&gt; $n + 1$ are of that genotype and so on until all the individuals $2^{k}$are of that genotype.&lt;/p&gt;
+
+&lt;p&gt;The probability of getting &lt;strong&gt;exactly&lt;/strong&gt; $ n $ organisms of genotype &lt;code class=&quot;highlighter-rouge&quot;&gt;AaBb&lt;/code&gt; out of $2^{k}$ is given by the binomial distribution as, with $ N = 2^{k} $:&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\dbinom{N}{n} 0.25^{n} 0.75^{N - n}&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;For the rest, we can succintly write this as&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\sum_{i=n}^{N} \dbinom{N}{i} 0.25^{i} 0.75^{N - i}&lt;/script&gt;.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/adijo/dcb12f1dcc9c24bdf8db.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Leetcode - Serialize and Deserialize a Binary Tree</title>
+   <link href="http://localhost:4000/2016/01/10/serialize-and-deserialize-binary-tree/"/>
+   <updated>2016-01-10T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/10/serialize-and-deserialize-binary-tree</id>
+   <content type="html">&lt;p&gt;One way to do this &lt;a href=&quot;https://leetcode.com/problems/serialize-and-deserialize-binary-tree/&quot;&gt;problem&lt;/a&gt; is to store the &lt;em&gt;preorder&lt;/em&gt; and &lt;em&gt;inorder&lt;/em&gt; traversals of the binary tree. This can uniquely preserve the structure of a binary tree. We still store twice the amount of data actually required although asymptotically it is still &lt;code class=&quot;highlighter-rouge&quot;&gt;O(n).&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;An alternative to this is to serialize the tree with the following algorithm:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Do a level order traversal (breadth first search) of the tree.&lt;/li&gt;
+  &lt;li&gt;While doing this, if the node is at the last level of the tree, don’t add &lt;em&gt;null&lt;/em&gt; nodes.&lt;/li&gt;
+  &lt;li&gt;At any of the upper levels, if the current node does not have a left or right child node, store a &lt;em&gt;null&lt;/em&gt; string to indicate this.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For example, the following tree is serialized as &lt;code class=&quot;highlighter-rouge&quot;&gt;[1, 2, 3, null, null, 4, 5].&lt;/code&gt;
+&lt;img src=&quot;http://adijo.github.io/assets/leetcode_btree_serialize.png&quot; alt=&quot;Serialize&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To deserialize a tree, we maintain two pointers. One pointer (say &lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt;) is to indicate which node is currently being processed. The second pointer (say &lt;code class=&quot;highlighter-rouge&quot;&gt;j&lt;/code&gt;) is the index of the left child of &lt;code class=&quot;highlighter-rouge&quot;&gt;i.&lt;/code&gt; There are a few corner cases to take care of. If &lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt; is equal to &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; we simply ignore it. If &lt;code class=&quot;highlighter-rouge&quot;&gt;j&lt;/code&gt; is out of bounds, we simply set the left and right child of &lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt; as &lt;code class=&quot;highlighter-rouge&quot;&gt;None.&lt;/code&gt;&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/adijo/d9e70ce8f45dde940243.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rosalind - Longest Path in a Directed Acyclic Graph</title>
+   <link href="http://localhost:4000/2016/01/07/rosalind-longest-path-in-a-dag/"/>
+   <updated>2016-01-07T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/07/rosalind-longest-path-in-a-dag</id>
+   <content type="html">&lt;p&gt;The mention of &lt;em&gt;longest&lt;/em&gt; or &lt;em&gt;shortest&lt;/em&gt; usually hints towards a dynamic programming solution and this &lt;a href=&quot;http://rosalind.info/problems/ba5d/&quot;&gt;problem&lt;/a&gt; was no different. One way to think about the problem is the following: We start backwards, from the sink. The longest path from the sink to the sink is 0. Ok, that was obvious. Next, consider all the incoming edges to this node.
+The longest path to the sink is the maximum of all these edges. Then we recursively calculate the value for all previous nodes until we reach the source. However to solve this problem I have written the code to work forward - The search begins at the source. This will be clearer after looking at the code. The actual search is carried out by the &lt;code class=&quot;highlighter-rouge&quot;&gt;compute&lt;/code&gt; function. The &lt;code class=&quot;highlighter-rouge&quot;&gt;longest_path&lt;/code&gt; dictionary is to cache results. The &lt;code class=&quot;highlighter-rouge&quot;&gt;longest_path_choice&lt;/code&gt; stores which choice we need to make from the given node to maximize the distance to the sink.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/adijo/e5332bbd459723972c4a.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Leetcode - Different Ways to Add Parentheses</title>
+   <link href="http://localhost:4000/2016/01/06/leetcode-different-ways-to-add-parentheses/"/>
+   <updated>2016-01-06T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/06/leetcode-different-ways-to-add-parentheses</id>
+   <content type="html">&lt;p&gt;This was a fun &lt;a href=&quot;https://leetcode.com/problems/different-ways-to-add-parentheses/&quot;&gt;problem&lt;/a&gt; to solve. The first thing to do is to tokenize the input. Next, the basic idea is to imagine that at every operator symbol,
+what would happen if this operation was carried out last? We define the function &lt;code class=&quot;highlighter-rouge&quot;&gt;compute(lo, hi)&lt;/code&gt; that will 
+return a list of all possible values by adding all possible parentheses. The algorithm is as follows - We loop from &lt;code class=&quot;highlighter-rouge&quot;&gt;lo&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;hi&lt;/code&gt; inclusive
+and if we find an operator (+, - or *) at position &lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt;, we split the list into two parts - the sublist to the left of this operator and the sublist to the right. 
+We recursively find &lt;code class=&quot;highlighter-rouge&quot;&gt;compute(lo, i - 1)&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;compute(i + 1, hi)&lt;/code&gt;. We carry out the 
+operation at position &lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt; for every entry in the cartesian product of these two lists.&lt;/p&gt;
+
+&lt;p&gt;It is better understood by this visualization and by the code.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://adijo.github.io/assets/leetcode_parens.png&quot; alt=&quot;Parentheses&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The left list &lt;code class=&quot;highlighter-rouge&quot;&gt;[6]&lt;/code&gt; and right list &lt;code class=&quot;highlighter-rouge&quot;&gt;[20]&lt;/code&gt; could have multiple elements and the operation is a cartesian product of these two lists with the respective operator, which in this case is the subtraction symbol.&lt;/p&gt;
+
+&lt;p&gt;Another fun feature in my code below was the use of mapping operators to functions with a dictionary. This is done in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_evaluate&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/adijo/9d6c1b687434a4462c47.js&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Project Euler - Three ways</title>
+   <link href="http://localhost:4000/2016/01/03/project-euler-path-sum-three-ways/"/>
+   <updated>2016-01-03T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2016/01/03/project-euler-path-sum-three-ways</id>
+   <content type="html">&lt;p&gt;After solving &lt;a href=&quot;https://projecteuler.net/problem=81&quot;&gt;Path sum - two ways&lt;/a&gt;, which was a straightforward dynamic programming problem, I began to solve the next one in the series &lt;a href=&quot;https://projecteuler.net/problem=82&quot;&gt;Path sum - three ways.&lt;/a&gt; After thinking about it for some minutes, I realized that at the heart of it, this was a simple graph problem in which a shortest path had to be calculated. This was a perfect job to employ Dijkstra’s shortest path algorithm. I transformed the input matrix into a graph and thereafter the only modification was the addition of an additional set of two nodes, one as the source and the other was the sink. The source had an edge to all the entries in the first column with 0 cost and all the entries in the last column had edges to the sink with the cost equal to the respective entry in the matrix. 
+&lt;script src=&quot;https://gist.github.com/adijo/10126db83cbf8c6b8198.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>

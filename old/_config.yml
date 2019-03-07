@@ -1,0 +1,27 @@
+# Dependencies
+markdown:         kramdown
+highlighter:      rouge
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Aditya Joshi
+tagline:          'Wanderer'
+description:      'Information about my personal projects, research and professional experience.'
+url:              http://adijo.github.io/
+baseurl:          /
+
+author:
+  name:           'Aditya Joshi'
+  url:            https://twitter.com/1adityajoshi
+  avatar: https://lh3.googleusercontent.com/63qIoCQMpeYlbeOSVNEEFqIG-fjLyChZahslTwVw_5UmGV2jHw89KelRjlavNQiKmx5c=w1920-h1080-rw-no
+
+paginate:         5
+
+# Custom vars
+version:          2.1.0
+
+github:
+  repo:           https://github.com/adijo

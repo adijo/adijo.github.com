@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Rosalind - Independent Alleles &middot; Aditya Joshi
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- MathJax -->
+   
+      <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'], ['\(', '\)'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true,
+    }
+  });
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
+</head>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35712896-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Aditya Joshi
+        </a>
+      </h1>
+      <p class="lead">Information about my personal projects, research and professional experience.</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/blog/">Blog</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/contact/">Contact</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/courses/">Courses</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/professional/">Professional</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/projects/">Projects</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/research/">Research</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+
+
+      <span class="sidebar-nav-item">Currently v2.1.0</span>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Rosalind - Independent Alleles</h1>
+  <span class="post-date">12 Jan 2016</span>
+  <p>This <a href="http://rosalind.info/problems/lia/">problem</a> involved more probability and less code. I really enjoy solving problems on probability and so this was a lot of fun.</p>
+
+<h3 id="initial-thoughts">Initial thoughts</h3>
+
+<p>I thought this would take <em>a lot</em> of effort because there would be an exponential number of possibilities. For instance, an organism <code class="highlighter-rouge">AaBb</code> code mate with <code class="highlighter-rouge">AABB</code> or <code class="highlighter-rouge">Abab.</code> There are way to many possibilities and it is easy to lose track.</p>
+
+<h3 id="insight">Insight</h3>
+
+<p>The key insight is that for an organism with <em>any</em> genotype, <code class="highlighter-rouge">AaBb</code>, <code class="highlighter-rouge">AABB</code>, <code class="highlighter-rouge">aBaB</code>, <code class="highlighter-rouge">aaBB</code> and so on, the probability of producing an offspring of genotype <code class="highlighter-rouge">AaBb</code> <strong>after</strong> mating with a <code class="highlighter-rouge">AaBb</code> organism is exactly $0.25.$ Just work out all the possibilites and find that this is indeed true.</p>
+
+<h3 id="formulating-a-structured-solution">Formulating a structured solution</h3>
+
+<p>We can thus view the birth of a <code class="highlighter-rouge">AaBb</code> offspring as a <em>success</em> and the birth of any other genotype a so called <em>failure.</em> At the $k^{\text{th}}$ generation, there are $2^{k}$ organisms. For each of them, the probability that they are of the desired genotype <code class="highlighter-rouge">AaBb</code> is $0.25.$ Thus, for $ 2^{k} $ individuals, this basically boils down to finding the probability of $ K $ successes in $ N $ trials. This is the <a href="https://en.wikipedia.org/wiki/Binomial_distribution">Binomial Distribution.</a> Don’t get confused with the notation, here $N$ refers to the total number of trials, which is equal to the total number of organisms at the $k^{\text{th}}$ level, which is equal to $N = 2^{k}.$ The question asks for us to find the probability that there are <strong>at least</strong> $n$ organisms with the desired genotype. Thus, we need to find this probability for all $ n $ in the range $[n, n + 1, … , 2^{k}]$</p>
+
+<p>In other words, in a population of $2^{k}$ individuals, first we find the probability that <strong>exactly</strong> $ n $ are of the desired genotype <code class="highlighter-rouge">AaBb</code>, then we find the probability that <strong>exactly</strong> $n + 1$ are of that genotype and so on until all the individuals $2^{k}$are of that genotype.</p>
+
+<p>The probability of getting <strong>exactly</strong> $ n $ organisms of genotype <code class="highlighter-rouge">AaBb</code> out of $2^{k}$ is given by the binomial distribution as, with $ N = 2^{k} $:</p>
+
+<p><script type="math/tex">\dbinom{N}{n} 0.25^{n} 0.75^{N - n}</script>.</p>
+
+<p>For the rest, we can succintly write this as</p>
+
+<p><script type="math/tex">\sum_{i=n}^{N} \dbinom{N}{i} 0.25^{i} 0.75^{N - i}</script>.</p>
+
+<script src="https://gist.github.com/adijo/dcb12f1dcc9c24bdf8db.js"></script>
+
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2016/06/05/leetcode-integer-break/">
+            Leetcode - Integer Break
+            <small>05 Jun 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/06/05/leetcode-house-robber-iii/">
+            Leetcode - House Robber III
+            <small>05 Jun 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/06/05/leetcode-game-of-life/">
+            Leetcode - Game of Life
+            <small>05 Jun 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//adijogithubio.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+    </div>
+
+  </body>
+</html>

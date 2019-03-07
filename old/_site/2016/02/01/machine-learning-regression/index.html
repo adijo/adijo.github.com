@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Machine Learning - Regression &middot; Aditya Joshi
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- MathJax -->
+   
+      <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'], ['\(', '\)'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true,
+    }
+  });
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
+</head>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35712896-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Aditya Joshi
+        </a>
+      </h1>
+      <p class="lead">Information about my personal projects, research and professional experience.</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/blog/">Blog</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/contact/">Contact</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/courses/">Courses</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/professional/">Professional</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/projects/">Projects</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/research/">Research</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+
+
+      <span class="sidebar-nav-item">Currently v2.1.0</span>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Machine Learning - Regression</h1>
+  <span class="post-date">01 Feb 2016</span>
+  <p>In these series of blog posts, I aim to highlight key points in my study of Machine Learning, having referred to the <a href="http://www-bcf.usc.edu/~gareth/ISL/">ISLR book</a> and the <a href="https://www.coursera.org/specializations/machine-learning">Machine Learning</a> courses on Coursera by the University of Washington.</p>
+
+<p>These will serve as notes for myself and I will be glad if it helps other people as well. They are only a high level summary of the topics and by no means are comprehensive.</p>
+
+<h3 id="introduction">Introduction</h3>
+
+<ul>
+  <li>Consider the case of predicting an output that depends only on one input, $x.$ There is a <em>true</em> function associated with whatever phenomenon we are trying to model. Let this function be $f(x) + \epsilon.$ The $\epsilon$ term is noise which is normally distributed with $ 0 $ mean.</li>
+  <li>We are trying to build a function $f’(x),$ called the <em>hypothesis</em> that <em>approximates</em> $f(x).$</li>
+  <li>Typically, we <em>train</em> a model to minimize the <em>residual sum of squares,</em> or $\text{RSS}$ for short. This is just the sum of square of errors accumulated between the actual value and predicted value, $ \sum_{i = 0}^n \left(y - f(x) \right)^2.$ Other measures of fit are the $R^2$ statistic, or the goodness of fit. In short, the $R^2$ statistic tries to explain how much of the variability of $ y $ is explained by the variability in $x.$</li>
+</ul>
+
+<h3 id="regression">Regression</h3>
+<ul>
+  <li>The hypothesis function is linear in the coefficients but non-linear with respect to $x.$ This means that features such as $x^3$ or $x^2$ are allowed. We can simply define a new feature $x_3 = x_2^3 + x_1.$</li>
+  <li>Linear regression can be used to model non-linear relationships by transforming the input space. This is called basis function expansion. What this essentially means is that for each $ x_i $ in our input space, we apply a <em>transformation</em> by using what is called a basis function $ \phi(x). $</li>
+  <li>The complexity of a model basically captures its <em>flexibility,</em> or <em>expressive power.</em> This means that the model can have wild looking curves and capture more data points than a simpler model. For example, a quadratic model can fit more data points than a simple line.</li>
+  <li>As the complexity of a model increases, there are two competing sources of error that arise, the <em>bias</em> and the <em>variance.</em> These are the two sources of error apart from $ \epsilon, $ which is an <em>irreducible</em> error.</li>
+  <li>If we make a very flexible model, consisting of very high order polynomials, our model might become susceptible to overfitting the data. A technique called <strong>regularization</strong> is used to reduce the variance of the model.</li>
+</ul>
+
+<p><em>ARTICLE IN PROGRESS</em></p>
+
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2016/06/05/leetcode-integer-break/">
+            Leetcode - Integer Break
+            <small>05 Jun 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/06/05/leetcode-house-robber-iii/">
+            Leetcode - House Robber III
+            <small>05 Jun 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/06/05/leetcode-game-of-life/">
+            Leetcode - Game of Life
+            <small>05 Jun 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//adijogithubio.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+    </div>
+
+  </body>
+</html>
