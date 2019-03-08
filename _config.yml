@@ -1,27 +1,27 @@
-baseurl:
-title: Tufte-Jekyll
-subtitle: Content-centric blogging
-author: clay harmon
-simple_search: http://google.com/search
-description: A Jekyll theme for content-rich sites
-name: tufte
-markdown: kramdown
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-permalink: /articles/:short_year/:title
-timezone: America/New_York
-excerpt_separator: <!--more-->  # you can specify your own separator, of course.
-exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'UploadToGithub.Rakefile', 'README.md']
-post:
-  template: _post.txt
-  extension: md
-page:
-  template: _page.txt
-  extension: md
-editor: gvim
-git:
-  branch: master
-transfer:
-  command: rsync
-  settings: -av
-  source: _site/
-  destination: ~/Git/clayh53.github.com/
+# Dependencies
+markdown:         redcarpet
+highlighter:      rouge
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Aditya Joshi
+tagline:          'Wanderer'
+description:      'Information about my personal projects, research and professional experience.'
+url:              http://adijo.github.io/
+baseurl:          /
+
+author:
+  name:           'Aditya Joshi'
+  url:            https://twitter.com/1adityajoshi
+  avatar: https://lh3.googleusercontent.com/63qIoCQMpeYlbeOSVNEEFqIG-fjLyChZahslTwVw_5UmGV2jHw89KelRjlavNQiKmx5c=w1920-h1080-rw-no
+
+paginate:         5
+
+# Custom vars
+version:          2.1.0
+
+github:
+  repo:           https://github.com/adijo

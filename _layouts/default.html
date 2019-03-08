@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
+
   {% include head.html %}
+  {% include google_analytics.html %}
   <body>
-    {% include header.html %}
-    <article class="group">
+
+    {% include sidebar.html %}
+
+    <div class="content container">
       {{ content }}
-    </article>
-    {% include print-footer.html %}
-    {% include footer.html %}
+    </div>
+
   </body>
 </html>

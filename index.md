@@ -19,6 +19,7 @@ I'm currently pursuing a Master's degree specializing in Artificial Intelligence
   * [Sphere Online Judge](http://www.spoj.com/users/adijo/) highest rank: Top 10% Wordwide.
 
 * My highest rank on [Kaggle](https://www.kaggle.com/adityanjoshi) is 446 out of 389,842 people. 
+* I have started solving problems on [Project Euler](https://projecteuler.net/): ![PE stats](https://projecteuler.net/profile/rosetta.png "")
   
 * I have solved 54 problems on [Rosalind](http://rosalind.info/users/adijo/) in the field of bioinformatics.
 
