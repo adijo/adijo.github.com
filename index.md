@@ -6,7 +6,7 @@ use_math: true
 
 # Hey!
 
-I recently completed my degree specializing in Machine Learning at the Mila - Quebec AI Institute (University of Montreal). I'll be joining Boston Consulting Group [(BCG GAMMA)](https://www.bcg.com/beyond-consulting/bcg-gamma/default.aspx) as a Machine Learning Engineer in Toronto. Previously I worked as a Software Development Engineer at Amazon Web Services in The Hague, Netherlands.
+I recently completed my degree specializing in Machine Learning at the [Mila - Quebec AI Institute](https://en.wikipedia.org/wiki/Mila_(research_institute)), University of Montreal. I'll be joining Boston Consulting Group [BCG GAMMA](https://www.bcg.com/beyond-consulting/bcg-gamma/default.aspx) as a Machine Learning Engineer in Toronto. Previously I worked as a Software Development Engineer at Amazon Web Services in The Hague, Netherlands.
 
 * I write software that is hosted on [GitHub.](https://github.com/adijo) 
 
