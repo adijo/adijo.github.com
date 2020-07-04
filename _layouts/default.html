@@ -1,15 +1,18 @@
+---
+layout: compress
+---
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="{{ page.lang | default: site.lang | default: " en " }}">
+{% include header.html %}
 
-  {% include head.html %}
-  {% include google_analytics.html %}
-  <body>
-
-    {% include sidebar.html %}
-
-    <div class="content container">
+<body data-theme="{{ site.mode }}">
+  {% include navbar.html %}
+  <div class="wrapper">
+    {% include author.html %}
+    <main aria-label="Content">
       {{ content }}
-    </div>
-
-  </body>
+    </main>
+    {% include footer.html %}
+  </div>
+</body>
 </html>

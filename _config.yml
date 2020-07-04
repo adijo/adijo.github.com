@@ -1,27 +1,80 @@
-# Dependencies
-markdown:         kramdown
-highlighter:      rouge
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
-# Permalinks
-permalink:        pretty
+# Site settings
+title: Klise Theme # site title
+description: >- # site description
+  He's writing in Bahasa about web technology and experience as a journal 
+  for documentation things that he learned, meet him <a href="https://github.com/piharpi" target="_blank" rel="noopener">@github</a>.
+lang: en-US # default lang
+timezone: America/Toronto
+image: assets/img/ogp.png # This image used for Open Graph more info https://ogp.me/
+repo: https://github.com/piharpi/jekyll-klise # site repo [optional]
+mode: dark # default theme "dark" | "light"
 
-# Setup
-title:            Aditya Joshi
-tagline:          'Wanderer'
-description:      'Information about my personal projects, research and professional experience.'
-url:              http://adijo.github.io/
-baseurl:          /
-
+# Profile settings
 author:
-  name:           'Aditya Joshi'
-  url:            https://twitter.com/1adityajoshi
-  avatar: https://lh3.googleusercontent.com/63qIoCQMpeYlbeOSVNEEFqIG-fjLyChZahslTwVw_5UmGV2jHw89KelRjlavNQiKmx5c=w1920-h1080-rw-no
+  name: Aditya Joshi
+  bio: >-
+    Machine Learning Engineer and Data Scientist based in Toronto 🇨🇦. Grew up in Pune 🇮🇳, spent a couple of years in The Hague  🇳🇱
+  username: 1adityajoshi # social media username eg. github, twitter
+  email: your-email@email.com # your contact adress
+  avatar: /assets/img/adijo.jpg # change with your own avatar
 
-paginate:         5
+# Url settings
+url: "https://klise.now.sh"
+baseurl:
+permalink: /:title/
+google_analytics:
+fb_appid:
 
-# Custom vars
-version:          2.1.0
+# Collection setting
+collections:
+  posts:
+    output: true
 
-github:
-  repo:           https://github.com/adijo
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: post
+      comments: false
+
+# Jekyll Compose default front matter
+jekyll_compose:
+  post_default_front_matter:
+    modified:
+    tags: []
+    description:
+  draft_default_front_matter:
+    modified:
+    tags: []
+    description:
+
+# Build settings
+sass:
+  style: compressed
+
+include:
+  - _redirects
+  - .htaccess
+
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - CHANGELOG.md
+  - README.md
+  - node_modules
+  - CODE_OF_CONDUCT.md
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-postfiles
