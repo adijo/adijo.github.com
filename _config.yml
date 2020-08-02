@@ -20,7 +20,7 @@ author:
 url: "http://adijo.github.io/"
 baseurl:
 permalink: /:title/
-google_analytics:
+google_analytics: UA-35712896-2
 fb_appid:
 
 # Collection setting
