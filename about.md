@@ -12,4 +12,4 @@ I graduated with a Master's degree in Machine Learning from the [Mila - Quebec A
 Previously, I worked at [Amazon Web Services](https://aws.amazon.com/) in The Hague, Netherlands as a Software Development Engineer and at [Merkle Sokrati](https://sokrati.com/) as a Software Design Engineer.
 
 
-- [GitHub](github.com/adijo)
+- [GitHub Profile](https://github.com/adijo)
