@@ -11,7 +11,7 @@ mode: dark # default theme "dark" | "light"
 author:
   name: Aditya Joshi
   bio: >-
-    Machine Learning Engineer and Data Scientist based in Toronto 🇨🇦. Grew up in Pune 🇮🇳, spent a couple of years in The Hague  🇳🇱 <br> <a href="https://twitter.com/intent/tweet?button_hashtag=1adityajoshi&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet #1adityajoshi</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    Machine Learning Engineer and Data Scientist based in Toronto 🇨🇦. Grew up in Pune 🇮🇳, spent a couple of years in The Hague  🇳🇱 <br> <br> <a href="https://twitter.com/intent/tweet?button_hashtag=1adityajoshi&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Follow @1adityajoshi</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
   username: 1adityajoshi # social media username eg. github, twitter
   email: your-email@email.com # your contact adress
